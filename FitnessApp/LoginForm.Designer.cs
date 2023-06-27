@@ -29,6 +29,7 @@ namespace FitnessApp
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
       this.lblHeader = new System.Windows.Forms.Label();
       this.lblPassword = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@ namespace FitnessApp
       this.btnLogin = new System.Windows.Forms.Button();
       this.lblNewUser = new System.Windows.Forms.Label();
       this.lnkRegister = new System.Windows.Forms.LinkLabel();
+      this.LoginErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
+      ((System.ComponentModel.ISupportInitialize)(this.LoginErrorHandler)).BeginInit();
       this.SuspendLayout();
       // 
       // lblHeader
@@ -79,6 +82,7 @@ namespace FitnessApp
       this.txtUserName.Name = "txtUserName";
       this.txtUserName.Size = new System.Drawing.Size(186, 34);
       this.txtUserName.TabIndex = 3;
+      this.txtUserName.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserName_Validate);
       // 
       // txtPassword
       // 
@@ -88,6 +92,7 @@ namespace FitnessApp
       this.txtPassword.PasswordChar = '*';
       this.txtPassword.Size = new System.Drawing.Size(186, 34);
       this.txtPassword.TabIndex = 4;
+      this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
       // 
       // btnLogin
       // 
@@ -121,13 +126,17 @@ namespace FitnessApp
       this.lnkRegister.Text = "Register";
       this.lnkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRegister_LinkClicked);
       // 
+      // LoginErrorHandler
+      // 
+      this.LoginErrorHandler.ContainerControl = this;
+      // 
       // LoginForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.ClientSize = new System.Drawing.Size(991, 633);
+      this.ClientSize = new System.Drawing.Size(991, 652);
       this.Controls.Add(this.lnkRegister);
       this.Controls.Add(this.lblNewUser);
       this.Controls.Add(this.btnLogin);
@@ -140,6 +149,7 @@ namespace FitnessApp
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "LoginForm";
       this.Text = "FitTracker";
+      ((System.ComponentModel.ISupportInitialize)(this.LoginErrorHandler)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -155,5 +165,6 @@ namespace FitnessApp
     private System.Windows.Forms.Button btnLogin;
     private System.Windows.Forms.Label lblNewUser;
     private System.Windows.Forms.LinkLabel lnkRegister;
+    private System.Windows.Forms.ErrorProvider LoginErrorHandler;
   }
 }

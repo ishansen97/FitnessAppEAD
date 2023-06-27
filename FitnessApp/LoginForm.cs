@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FitnessApp.Context;
 
 namespace FitnessApp
 {
@@ -27,9 +28,51 @@ namespace FitnessApp
 
     private void btnLogin_Click(object sender, EventArgs e)
     {
-      Dashboard dashboard = new Dashboard();
-      dashboard.Activate();
-      dashboard.Show();
+      if (ValidateChildren(ValidationConstraints.Enabled))
+      {
+        string userName = txtUserName.Text.Trim();
+        string password = txtPassword.Text.Trim();
+        if (FitnessContext.Login(userName, password))
+        {
+          Dashboard dashboard = new Dashboard();
+          dashboard.Activate();
+          dashboard.Show();
+        }
+        else
+        {
+          MessageBox.Show("Invalid Credentials", "Sorry");
+        }
+      }
+    }
+
+    private void txtUserName_Validate(object sender, CancelEventArgs e)
+    {
+      if (string.IsNullOrWhiteSpace(txtUserName.Text))
+      {
+        e.Cancel = true;
+        txtUserName.Focus();
+        LoginErrorHandler.SetError(txtUserName, "User Name must be not empty.");
+      }
+      else
+      {
+        e.Cancel = false;
+        LoginErrorHandler.SetError(txtUserName, string.Empty);
+      }
+    }
+
+    private void txtPassword_Validating(object sender, CancelEventArgs e)
+    {
+      if (string.IsNullOrWhiteSpace(txtPassword.Text))
+      {
+        e.Cancel = true;
+        txtUserName.Focus();
+        LoginErrorHandler.SetError(txtPassword, "Password must be not empty.");
+      }
+      else
+      {
+        e.Cancel = false;
+        LoginErrorHandler.SetError(txtPassword, string.Empty);
+      }
     }
   }
 }
