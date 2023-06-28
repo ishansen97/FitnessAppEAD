@@ -32,15 +32,16 @@ namespace FitnessApp
       {
         string userName = txtUserName.Text.Trim();
         string password = txtPassword.Text.Trim();
-        if (FitnessContext.Login(userName, password))
+        if (UserContext.Login(userName, password))
         {
+          Hide();
           Dashboard dashboard = new Dashboard();
           dashboard.Activate();
-          dashboard.Show();
+          dashboard.ShowDialog();
         }
         else
         {
-          MessageBox.Show("Invalid Credentials", "Sorry");
+          MessageBox.Show("Your username and password are incorrect.", "Invalid credentials");
         }
       }
     }

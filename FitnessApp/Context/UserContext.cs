@@ -8,14 +8,15 @@ using FitnessApp.Models;
 
 namespace FitnessApp.Context
 {
-    public static class FitnessContext
+    public static class UserContext
     {
       private static Hashtable _users;
       private static Hashtable _userProfiles;
+      private static Hashtable _workouts;
       private static UserProfile _currentProfile;
       private static bool _isUserAuthenticated = false;
 
-      public static void InitializeApp()
+      public static void InitializeUserContext()
       {
         _users = new Hashtable
         {
@@ -33,6 +34,9 @@ namespace FitnessApp.Context
           ["JohnWick"] = new UserProfile
             { ProfileId = 2, User = (User)_users[2], UserName = "JohnWick", Password = "user@123" },
         };
+
+        // workouts
+        _workouts = new Hashtable();
 
       }
 

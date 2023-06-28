@@ -31,6 +31,8 @@ namespace FitnessApp
     {
       this.ReportsTab = new System.Windows.Forms.TabPage();
       this.PredictionsTab = new System.Windows.Forms.TabPage();
+      this.flwPanel = new System.Windows.Forms.FlowLayoutPanel();
+      this.lblWarningMessage = new System.Windows.Forms.Label();
       this.btnPredict = new System.Windows.Forms.Button();
       this.ProfileTab = new System.Windows.Forms.TabPage();
       this.txtUserName = new System.Windows.Forms.TextBox();
@@ -52,19 +54,19 @@ namespace FitnessApp
       this.label2 = new System.Windows.Forms.Label();
       this.lblCheatMeals = new System.Windows.Forms.Label();
       this.pnlWorkouts = new System.Windows.Forms.Panel();
-      this.label1 = new System.Windows.Forms.Label();
+      this.lblWorkoutCount = new System.Windows.Forms.Label();
       this.lblWorkOutNoDays = new System.Windows.Forms.Label();
       this.lblWorkouts = new System.Windows.Forms.Label();
       this.Home = new System.Windows.Forms.TabControl();
-      this.flwPanel = new System.Windows.Forms.FlowLayoutPanel();
-      this.lblWarningMessage = new System.Windows.Forms.Label();
+      this.lnkAddWorkout = new System.Windows.Forms.LinkLabel();
+      this.lnkAddCheatMeal = new System.Windows.Forms.LinkLabel();
       this.PredictionsTab.SuspendLayout();
+      this.flwPanel.SuspendLayout();
       this.ProfileTab.SuspendLayout();
       this.HomeTab.SuspendLayout();
       this.pnlCheatMeals.SuspendLayout();
       this.pnlWorkouts.SuspendLayout();
       this.Home.SuspendLayout();
-      this.flwPanel.SuspendLayout();
       this.SuspendLayout();
       // 
       // ReportsTab
@@ -88,6 +90,25 @@ namespace FitnessApp
       this.PredictionsTab.Size = new System.Drawing.Size(892, 544);
       this.PredictionsTab.TabIndex = 2;
       this.PredictionsTab.Text = "Predictions";
+      // 
+      // flwPanel
+      // 
+      this.flwPanel.Controls.Add(this.lblWarningMessage);
+      this.flwPanel.Location = new System.Drawing.Point(147, 66);
+      this.flwPanel.Name = "flwPanel";
+      this.flwPanel.Size = new System.Drawing.Size(544, 165);
+      this.flwPanel.TabIndex = 1;
+      // 
+      // lblWarningMessage
+      // 
+      this.lblWarningMessage.AutoSize = true;
+      this.lblWarningMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
+      this.lblWarningMessage.Location = new System.Drawing.Point(3, 0);
+      this.lblWarningMessage.Name = "lblWarningMessage";
+      this.lblWarningMessage.Size = new System.Drawing.Size(504, 108);
+      this.lblWarningMessage.TabIndex = 0;
+      this.lblWarningMessage.Text = "You need to have atleast 5 workouts/cheat meals before making predictions";
       // 
       // btnPredict
       // 
@@ -264,6 +285,7 @@ namespace FitnessApp
       // pnlCheatMeals
       // 
       this.pnlCheatMeals.BackColor = System.Drawing.Color.Coral;
+      this.pnlCheatMeals.Controls.Add(this.lnkAddCheatMeal);
       this.pnlCheatMeals.Controls.Add(this.label2);
       this.pnlCheatMeals.Controls.Add(this.lblCheatMeals);
       this.pnlCheatMeals.Location = new System.Drawing.Point(528, 22);
@@ -276,11 +298,12 @@ namespace FitnessApp
       this.label2.AutoSize = true;
       this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.label2.ForeColor = System.Drawing.Color.Red;
-      this.label2.Location = new System.Drawing.Point(107, 84);
+      this.label2.Location = new System.Drawing.Point(113, 84);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(64, 69);
       this.label2.TabIndex = 3;
       this.label2.Text = "1";
+      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // lblCheatMeals
       // 
@@ -295,7 +318,8 @@ namespace FitnessApp
       // pnlWorkouts
       // 
       this.pnlWorkouts.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.pnlWorkouts.Controls.Add(this.label1);
+      this.pnlWorkouts.Controls.Add(this.lnkAddWorkout);
+      this.pnlWorkouts.Controls.Add(this.lblWorkoutCount);
       this.pnlWorkouts.Controls.Add(this.lblWorkOutNoDays);
       this.pnlWorkouts.Controls.Add(this.lblWorkouts);
       this.pnlWorkouts.Location = new System.Drawing.Point(27, 22);
@@ -303,16 +327,16 @@ namespace FitnessApp
       this.pnlWorkouts.Size = new System.Drawing.Size(293, 236);
       this.pnlWorkouts.TabIndex = 0;
       // 
-      // label1
+      // lblWorkoutCount
       // 
-      this.label1.AutoSize = true;
-      this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-      this.label1.Location = new System.Drawing.Point(97, 84);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(98, 69);
-      this.label1.TabIndex = 2;
-      this.label1.Text = "10";
+      this.lblWorkoutCount.AutoSize = true;
+      this.lblWorkoutCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblWorkoutCount.ForeColor = System.Drawing.SystemColors.Highlight;
+      this.lblWorkoutCount.Location = new System.Drawing.Point(97, 84);
+      this.lblWorkoutCount.Name = "lblWorkoutCount";
+      this.lblWorkoutCount.Size = new System.Drawing.Size(98, 69);
+      this.lblWorkoutCount.TabIndex = 2;
+      this.lblWorkoutCount.Text = "10";
       // 
       // lblWorkOutNoDays
       // 
@@ -351,24 +375,32 @@ namespace FitnessApp
       this.Home.TabIndex = 0;
       this.Home.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnTabChanged);
       // 
-      // flwPanel
+      // lnkAddWorkout
       // 
-      this.flwPanel.Controls.Add(this.lblWarningMessage);
-      this.flwPanel.Location = new System.Drawing.Point(147, 66);
-      this.flwPanel.Name = "flwPanel";
-      this.flwPanel.Size = new System.Drawing.Size(544, 165);
-      this.flwPanel.TabIndex = 1;
+      this.lnkAddWorkout.AutoSize = true;
+      this.lnkAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnkAddWorkout.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+      this.lnkAddWorkout.LinkColor = System.Drawing.Color.White;
+      this.lnkAddWorkout.Location = new System.Drawing.Point(85, 185);
+      this.lnkAddWorkout.Name = "lnkAddWorkout";
+      this.lnkAddWorkout.Size = new System.Drawing.Size(127, 25);
+      this.lnkAddWorkout.TabIndex = 3;
+      this.lnkAddWorkout.TabStop = true;
+      this.lnkAddWorkout.Text = "Add Workout";
+      this.lnkAddWorkout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAddWorkout_LinkClicked);
       // 
-      // lblWarningMessage
+      // lnkAddCheatMeal
       // 
-      this.lblWarningMessage.AutoSize = true;
-      this.lblWarningMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblWarningMessage.ForeColor = System.Drawing.Color.Red;
-      this.lblWarningMessage.Location = new System.Drawing.Point(3, 0);
-      this.lblWarningMessage.Name = "lblWarningMessage";
-      this.lblWarningMessage.Size = new System.Drawing.Size(504, 108);
-      this.lblWarningMessage.TabIndex = 0;
-      this.lblWarningMessage.Text = "You need to have atleast 5 workouts/cheat meals before making predictions";
+      this.lnkAddCheatMeal.AutoSize = true;
+      this.lnkAddCheatMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnkAddCheatMeal.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+      this.lnkAddCheatMeal.LinkColor = System.Drawing.Color.White;
+      this.lnkAddCheatMeal.Location = new System.Drawing.Point(71, 185);
+      this.lnkAddCheatMeal.Name = "lnkAddCheatMeal";
+      this.lnkAddCheatMeal.Size = new System.Drawing.Size(154, 25);
+      this.lnkAddCheatMeal.TabIndex = 4;
+      this.lnkAddCheatMeal.TabStop = true;
+      this.lnkAddCheatMeal.Text = "Add Cheat Meal";
       // 
       // Dashboard
       // 
@@ -379,6 +411,8 @@ namespace FitnessApp
       this.Name = "Dashboard";
       this.Text = "Hello <user>";
       this.PredictionsTab.ResumeLayout(false);
+      this.flwPanel.ResumeLayout(false);
+      this.flwPanel.PerformLayout();
       this.ProfileTab.ResumeLayout(false);
       this.ProfileTab.PerformLayout();
       this.HomeTab.ResumeLayout(false);
@@ -387,8 +421,6 @@ namespace FitnessApp
       this.pnlWorkouts.ResumeLayout(false);
       this.pnlWorkouts.PerformLayout();
       this.Home.ResumeLayout(false);
-      this.flwPanel.ResumeLayout(false);
-      this.flwPanel.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -418,11 +450,13 @@ namespace FitnessApp
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblCheatMeals;
     private System.Windows.Forms.Panel pnlWorkouts;
-    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label lblWorkoutCount;
     private System.Windows.Forms.Label lblWorkOutNoDays;
     private System.Windows.Forms.Label lblWorkouts;
     private System.Windows.Forms.Button btnPredict;
     private System.Windows.Forms.FlowLayoutPanel flwPanel;
     private System.Windows.Forms.Label lblWarningMessage;
+    private System.Windows.Forms.LinkLabel lnkAddCheatMeal;
+    private System.Windows.Forms.LinkLabel lnkAddWorkout;
   }
 }

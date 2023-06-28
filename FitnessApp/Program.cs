@@ -16,7 +16,8 @@ namespace FitnessApp
     static void Main()
     {
       // initialize the app data.
-      FitnessContext.InitializeApp();
+      UserContext.InitializeUserContext();
+      WorkoutContext.InitializeWorkoutContext();
 
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
