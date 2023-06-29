@@ -16,12 +16,18 @@ namespace FitnessApp
     static void Main()
     {
       // initialize the app data.
-      UserContext.InitializeUserContext();
-      WorkoutContext.InitializeWorkoutContext();
+      InitializeApp();
 
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new LoginForm());
+    }
+
+    private static void InitializeApp()
+    {
+      UserContext.InitializeUserContext();
+      WorkoutContext.InitializeWorkoutContext();
+      CheatMealContext.InitializeCheatMealContext();
     }
   }
 }

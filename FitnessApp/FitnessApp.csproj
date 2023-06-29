@@ -46,9 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Handlers\CheatMealService.cs" />
     <Compile Include="Business\Handlers\WorkoutService.cs" />
+    <Compile Include="CheatMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheatMealForm.Designer.cs">
+      <DependentUpon>CheatMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CheatMealContext.cs" />
     <Compile Include="Context\WorkoutContext.cs" />
+    <Compile Include="CustomControls\DetailPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\FormsControlExtensions.cs" />
+    <Compile Include="Helpers\DetailHelper.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\FormControlHelper.cs" />
     <Compile Include="Context\UserContext.cs" />
@@ -64,7 +76,10 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Abstractions\Detail.cs" />
+    <Compile Include="Models\CheatMeal.cs" />
     <Compile Include="Models\Enums\ExerciseType.cs" />
+    <Compile Include="Models\Enums\MealType.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserProfile.cs" />
@@ -77,12 +92,21 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewInfoForm.Designer.cs">
+      <DependentUpon>ViewInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WorkoutForm.Designer.cs">
       <DependentUpon>WorkoutForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CheatMealForm.resx">
+      <DependentUpon>CheatMealForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +125,10 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewInfoForm.resx">
+      <DependentUpon>ViewInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkoutForm.resx">
       <DependentUpon>WorkoutForm.cs</DependentUpon>
@@ -122,10 +150,19 @@
     <None Include="Resources\MainBackgroundImage.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\figure 6.png" />
+    <Folder Include="Business\Validation\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\Validation\" />
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\details_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

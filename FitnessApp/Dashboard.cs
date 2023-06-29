@@ -24,7 +24,7 @@ namespace FitnessApp
       //string newHeader = 
       ChangeHeader();
       _workoutService = new WorkoutService();
-      lblWorkoutCount.Text = $"{_workoutService.GetWorkouts().Count}";
+      lnkWorkoutDaysCount.Text = $"{_workoutService.GetWorkouts().Count}";
     }
 
     private void ChangeHeader()
@@ -59,6 +59,14 @@ namespace FitnessApp
       Hide();
       workoutForm.Activate();
       workoutForm.ShowDialog();
+    }
+
+    private void lnkWorkoutDaysCount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      ViewInfoForm viewForm = new ViewInfoForm(true);
+      Hide();
+      viewForm.Activate();
+      viewForm.ShowDialog();
     }
   }
 }

@@ -27,6 +27,7 @@ namespace FitnessApp
       InitializeComponent();
       LoadWorkoutTypes();
       _workoutService = new WorkoutService();
+      dtWorkoutPicker.MaxDate = DateTime.Now;
     }
 
     private void LoadWorkoutTypes()
@@ -113,6 +114,7 @@ namespace FitnessApp
           CreateRepControls(fields);
           break;
       }
+      workout.Fields = fields;
     }
 
     #region Creating Fields

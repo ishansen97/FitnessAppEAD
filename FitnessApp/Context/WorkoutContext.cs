@@ -19,16 +19,19 @@ namespace FitnessApp.Context
 
     public static void CreateWorkout(Workout workout)
     {
-      var userName = UserContext.CurrentProfile.UserName;
+      string userName = UserContext.CurrentProfile.UserName;
       if (_workouts.ContainsKey(userName))
       {
         // get workout list.
         var workoutList = (List<Workout>)_workouts[userName];
+        var newWorkoutId = workoutList.Count + 1;
+        workout.Id = newWorkoutId;
         workoutList.Add(workout);
         _workouts[userName] = workoutList;
       }
       else
       {
+        workout.Id = 1;
         List<Workout> workouts = new List<Workout> { workout };
         _workouts.Add(userName, workouts);
       }
@@ -43,6 +46,17 @@ namespace FitnessApp.Context
       }
 
       return new List<Workout>();
+    }
+
+    public static void DeleteWorkout(int workoutId)
+    {
+      string userName = UserContext.CurrentProfile.UserName;
+      if (_workouts.ContainsKey(userName))
+      {
+        var workouts = (List<Workout>)_workouts[userName];
+        workouts.RemoveAll(wk => wk.Id == workoutId);
+        _workouts[userName] = workouts;
+      }
     }
   }
 }

@@ -8,14 +8,10 @@ using FitnessApp.Models.Enums;
 
 namespace FitnessApp.Models
 {
-    public class Workout : Detail
+    public class CheatMeal : Detail
     {
-      public ExerciseType Exercise { get; set; }
+      public MealType MealType { get; set; }
 
-      public User User { get; set; }
-
-      public DateTime Created { get; set; }
-
-      public Dictionary<string, double> Fields { get; set; }
+      public int Gram { get; set; }
     }
 }

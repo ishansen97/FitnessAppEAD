@@ -63,9 +63,9 @@ namespace FitnessApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap figure_6 {
+        internal static System.Drawing.Bitmap delete_small {
             get {
-                object obj = ResourceManager.GetObject("figure 6", resourceCulture);
+                object obj = ResourceManager.GetObject("delete_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,29 @@ namespace FitnessApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MainBackgroundImage {
+        internal static System.Drawing.Bitmap details_small {
             get {
-                object obj = ResourceManager.GetObject("MainBackgroundImage", resourceCulture);
+                object obj = ResourceManager.GetObject("details_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_small {
+            get {
+                object obj = ResourceManager.GetObject("edit_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
