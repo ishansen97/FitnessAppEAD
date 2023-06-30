@@ -14,8 +14,6 @@ namespace FitnessApp.Models
 
       public User User { get; set; }
 
-      public DateTime Created { get; set; }
-
       public Dictionary<string, double> Fields { get; set; }
     }
 }

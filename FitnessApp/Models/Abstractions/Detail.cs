@@ -12,5 +12,7 @@ namespace FitnessApp.Models.Abstractions
   public class Detail
   {
     public int Id { get; set; }
+
+    public DateTime Created { get; set; }
   }
 }

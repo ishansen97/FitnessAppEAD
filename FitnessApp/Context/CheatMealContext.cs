@@ -47,14 +47,26 @@ namespace FitnessApp.Context
       return new List<CheatMeal>();
     }
 
+    public static CheatMeal GetCheatMealById(int id)
+    {
+      var userName = UserContext.CurrentProfile.UserName;
+      if (_cheatMeals.ContainsKey(userName))
+      {
+        var cheatMeals = (List<CheatMeal>)_cheatMeals[userName];
+        return cheatMeals.First(cm => cm.Id == id);
+      }
+
+      return null;
+    }
+
     public static void DeleteCheatMeal(int id)
     {
       string userName = UserContext.CurrentProfile.UserName;
       if (_cheatMeals.ContainsKey(userName))
       {
-        var workouts = (List<Workout>)_cheatMeals[userName];
-        workouts.RemoveAll(cm => cm.Id == id);
-        _cheatMeals[userName] = workouts;
+        var cheatMeals = (List<CheatMeal>)_cheatMeals[userName];
+        cheatMeals.RemoveAll(cm => cm.Id == id);
+        _cheatMeals[userName] = cheatMeals;
       }
     }
   }

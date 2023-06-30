@@ -29,33 +29,57 @@ namespace FitnessApp
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       this.pnlWorkout = new System.Windows.Forms.Panel();
-      this.txtAmount = new System.Windows.Forms.TextBox();
-      this.lblAmount = new System.Windows.Forms.Label();
-      this.btnAddWorkout = new System.Windows.Forms.Button();
-      this.cmbWorkoutTypes = new System.Windows.Forms.ComboBox();
-      this.lblCheatMealType = new System.Windows.Forms.Label();
-      this.lblCheatMealHead = new System.Windows.Forms.Label();
       this.dtCheatMealPicker = new System.Windows.Forms.DateTimePicker();
       this.lblCheatMealDate = new System.Windows.Forms.Label();
+      this.txtAmount = new System.Windows.Forms.TextBox();
+      this.lblAmount = new System.Windows.Forms.Label();
+      this.btnAddCheatMeal = new System.Windows.Forms.Button();
+      this.cmbCheatMealTypes = new System.Windows.Forms.ComboBox();
+      this.lblCheatMealType = new System.Windows.Forms.Label();
+      this.lblCheatMealHead = new System.Windows.Forms.Label();
+      this.CheatMealErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
       this.pnlWorkout.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.CheatMealErrorHandler)).BeginInit();
       this.SuspendLayout();
       // 
       // pnlWorkout
       // 
-      this.pnlWorkout.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkout.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.pnlWorkout.Controls.Add(this.dtCheatMealPicker);
       this.pnlWorkout.Controls.Add(this.lblCheatMealDate);
       this.pnlWorkout.Controls.Add(this.txtAmount);
       this.pnlWorkout.Controls.Add(this.lblAmount);
-      this.pnlWorkout.Controls.Add(this.btnAddWorkout);
-      this.pnlWorkout.Controls.Add(this.cmbWorkoutTypes);
+      this.pnlWorkout.Controls.Add(this.btnAddCheatMeal);
+      this.pnlWorkout.Controls.Add(this.cmbCheatMealTypes);
       this.pnlWorkout.Controls.Add(this.lblCheatMealType);
       this.pnlWorkout.Controls.Add(this.lblCheatMealHead);
       this.pnlWorkout.Location = new System.Drawing.Point(149, 41);
       this.pnlWorkout.Name = "pnlWorkout";
       this.pnlWorkout.Size = new System.Drawing.Size(728, 511);
       this.pnlWorkout.TabIndex = 1;
+      // 
+      // dtCheatMealPicker
+      // 
+      this.dtCheatMealPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+      this.dtCheatMealPicker.Location = new System.Drawing.Point(267, 254);
+      this.dtCheatMealPicker.MaxDate = new System.DateTime(2023, 6, 29, 0, 0, 0, 0);
+      this.dtCheatMealPicker.Name = "dtCheatMealPicker";
+      this.dtCheatMealPicker.Size = new System.Drawing.Size(157, 22);
+      this.dtCheatMealPicker.TabIndex = 11;
+      this.dtCheatMealPicker.Value = new System.DateTime(2023, 6, 29, 0, 0, 0, 0);
+      // 
+      // lblCheatMealDate
+      // 
+      this.lblCheatMealDate.AutoSize = true;
+      this.lblCheatMealDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCheatMealDate.ForeColor = System.Drawing.Color.Blue;
+      this.lblCheatMealDate.Location = new System.Drawing.Point(33, 253);
+      this.lblCheatMealDate.Name = "lblCheatMealDate";
+      this.lblCheatMealDate.Size = new System.Drawing.Size(52, 23);
+      this.lblCheatMealDate.TabIndex = 10;
+      this.lblCheatMealDate.Text = "Date";
       // 
       // txtAmount
       // 
@@ -64,6 +88,7 @@ namespace FitnessApp
       this.txtAmount.Name = "txtAmount";
       this.txtAmount.Size = new System.Drawing.Size(136, 30);
       this.txtAmount.TabIndex = 9;
+      this.txtAmount.Validating += new System.ComponentModel.CancelEventHandler(this.txtAmount_Validating);
       // 
       // lblAmount
       // 
@@ -76,24 +101,26 @@ namespace FitnessApp
       this.lblAmount.TabIndex = 8;
       this.lblAmount.Text = "Portion (in grams)";
       // 
-      // btnAddWorkout
+      // btnAddCheatMeal
       // 
-      this.btnAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnAddWorkout.Location = new System.Drawing.Point(264, 404);
-      this.btnAddWorkout.Name = "btnAddWorkout";
-      this.btnAddWorkout.Size = new System.Drawing.Size(121, 36);
-      this.btnAddWorkout.TabIndex = 3;
-      this.btnAddWorkout.Text = "Save";
-      this.btnAddWorkout.UseVisualStyleBackColor = true;
+      this.btnAddCheatMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnAddCheatMeal.Location = new System.Drawing.Point(264, 404);
+      this.btnAddCheatMeal.Name = "btnAddCheatMeal";
+      this.btnAddCheatMeal.Size = new System.Drawing.Size(121, 36);
+      this.btnAddCheatMeal.TabIndex = 3;
+      this.btnAddCheatMeal.Text = "Save";
+      this.btnAddCheatMeal.UseVisualStyleBackColor = true;
+      this.btnAddCheatMeal.Click += new System.EventHandler(this.btnAddCheatMeal_Click);
       // 
-      // cmbWorkoutTypes
+      // cmbCheatMealTypes
       // 
-      this.cmbWorkoutTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.cmbWorkoutTypes.FormattingEnabled = true;
-      this.cmbWorkoutTypes.Location = new System.Drawing.Point(267, 122);
-      this.cmbWorkoutTypes.Name = "cmbWorkoutTypes";
-      this.cmbWorkoutTypes.Size = new System.Drawing.Size(136, 33);
-      this.cmbWorkoutTypes.TabIndex = 2;
+      this.cmbCheatMealTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.cmbCheatMealTypes.FormattingEnabled = true;
+      this.cmbCheatMealTypes.Location = new System.Drawing.Point(267, 122);
+      this.cmbCheatMealTypes.Name = "cmbCheatMealTypes";
+      this.cmbCheatMealTypes.Size = new System.Drawing.Size(136, 33);
+      this.cmbCheatMealTypes.TabIndex = 2;
+      this.cmbCheatMealTypes.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCheatMealTypes_Validating);
       // 
       // lblCheatMealType
       // 
@@ -116,26 +143,9 @@ namespace FitnessApp
       this.lblCheatMealHead.TabIndex = 0;
       this.lblCheatMealHead.Text = "Add Cheat Meal";
       // 
-      // dtCheatMealPicker
+      // CheatMealErrorHandler
       // 
-      this.dtCheatMealPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-      this.dtCheatMealPicker.Location = new System.Drawing.Point(264, 256);
-      this.dtCheatMealPicker.MaxDate = new System.DateTime(2023, 6, 29, 0, 0, 0, 0);
-      this.dtCheatMealPicker.Name = "dtCheatMealPicker";
-      this.dtCheatMealPicker.Size = new System.Drawing.Size(157, 22);
-      this.dtCheatMealPicker.TabIndex = 11;
-      this.dtCheatMealPicker.Value = new System.DateTime(2023, 6, 29, 0, 0, 0, 0);
-      // 
-      // lblCheatMealDate
-      // 
-      this.lblCheatMealDate.AutoSize = true;
-      this.lblCheatMealDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblCheatMealDate.ForeColor = System.Drawing.Color.Blue;
-      this.lblCheatMealDate.Location = new System.Drawing.Point(33, 253);
-      this.lblCheatMealDate.Name = "lblCheatMealDate";
-      this.lblCheatMealDate.Size = new System.Drawing.Size(52, 23);
-      this.lblCheatMealDate.TabIndex = 10;
-      this.lblCheatMealDate.Text = "Date";
+      this.CheatMealErrorHandler.ContainerControl = this;
       // 
       // CheatMealForm
       // 
@@ -147,6 +157,7 @@ namespace FitnessApp
       this.Text = "Add Cheat Meal";
       this.pnlWorkout.ResumeLayout(false);
       this.pnlWorkout.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.CheatMealErrorHandler)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -156,11 +167,12 @@ namespace FitnessApp
     private System.Windows.Forms.Panel pnlWorkout;
     private System.Windows.Forms.TextBox txtAmount;
     private System.Windows.Forms.Label lblAmount;
-    private System.Windows.Forms.Button btnAddWorkout;
-    private System.Windows.Forms.ComboBox cmbWorkoutTypes;
+    private System.Windows.Forms.Button btnAddCheatMeal;
+    private System.Windows.Forms.ComboBox cmbCheatMealTypes;
     private System.Windows.Forms.Label lblCheatMealType;
     private System.Windows.Forms.Label lblCheatMealHead;
     private System.Windows.Forms.DateTimePicker dtCheatMealPicker;
     private System.Windows.Forms.Label lblCheatMealDate;
+    private System.Windows.Forms.ErrorProvider CheatMealErrorHandler;
   }
 }

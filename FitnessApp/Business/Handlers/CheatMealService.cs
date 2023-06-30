@@ -20,7 +20,12 @@ namespace FitnessApp.Business.Handlers
         return CheatMealContext.GetCheatMeals();
       }
 
-      public void DeleteCheatMeal(int id)
+      public CheatMeal GetCheatMealById(int id)
+      {
+        return CheatMealContext.GetCheatMealById(id);
+      }
+
+    public void DeleteCheatMeal(int id)
       {
         CheatMealContext.DeleteCheatMeal(id);
       }

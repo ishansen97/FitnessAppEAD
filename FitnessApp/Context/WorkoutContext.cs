@@ -48,6 +48,18 @@ namespace FitnessApp.Context
       return new List<Workout>();
     }
 
+    public static Workout GetWorkoutById(int id)
+    {
+      var userName = UserContext.CurrentProfile.UserName;
+      if (_workouts.ContainsKey(userName))
+      {
+        var workouts = (List<Workout>)_workouts[userName];
+        return workouts.First(wk => wk.Id == id);
+      }
+
+      return null;
+    }
+
     public static void DeleteWorkout(int workoutId)
     {
       string userName = UserContext.CurrentProfile.UserName;

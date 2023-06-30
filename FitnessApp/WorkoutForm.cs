@@ -44,7 +44,6 @@ namespace FitnessApp
         ExerciseType exercise = (ExerciseType)item;
         pnlWorkoutControls.Controls.Clear();
         pnlWorkoutControls.Controls.AddRange(FormControlHelper.GetExerciseTypeControls(exercise));
-        AppendValidationForTextBoxes();
         // resize the panel (extension method)
         pnlWorkoutControls.ResizePanel(5);
         pnlWorkoutControls.Show();
@@ -66,10 +65,7 @@ namespace FitnessApp
       if (ValidateChildren(ValidationConstraints.Enabled) && ValidateAdditionalFields())
       {
         CreateWorkout();
-        Dashboard dashboard = new Dashboard();
-        Hide();
-        dashboard.Activate();
-        dashboard.ShowDialog();
+        LoadDashboard();
       }
     }
 
@@ -156,18 +152,6 @@ namespace FitnessApp
     #endregion
 
     #region Workout TextBox Validation
-
-    private void AppendValidationForTextBoxes()
-    {
-      /*foreach (Control control in pnlWorkoutControls.Controls)
-      {
-        if (control.GetType() == typeof(TextBox))
-        {
-          control.Validating += WorkoutText_Validate;
-        }
-      }*/
-    }
-
     private bool ValidateAdditionalFields()
     {
       foreach (Control control in pnlWorkoutControls.Controls)
@@ -244,6 +228,14 @@ namespace FitnessApp
         e.Cancel = false;
         WorkoutErrorHandler.SetError(cmbWorkoutTypes, string.Empty);
       }
+    }
+
+    private void LoadDashboard()
+    {
+      Dashboard dashboard = new Dashboard();
+      Hide();
+      dashboard.Activate();
+      dashboard.ShowDialog();
     }
   }
 }

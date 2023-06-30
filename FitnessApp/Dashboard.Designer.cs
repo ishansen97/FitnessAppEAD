@@ -52,13 +52,13 @@ namespace FitnessApp
       this.HomeTab = new System.Windows.Forms.TabPage();
       this.pnlCheatMeals = new System.Windows.Forms.Panel();
       this.lnkAddCheatMeal = new System.Windows.Forms.LinkLabel();
-      this.label2 = new System.Windows.Forms.Label();
       this.lblCheatMeals = new System.Windows.Forms.Label();
       this.pnlWorkouts = new System.Windows.Forms.Panel();
+      this.lnkWorkoutDaysCount = new System.Windows.Forms.LinkLabel();
       this.lnkAddWorkout = new System.Windows.Forms.LinkLabel();
       this.lblWorkouts = new System.Windows.Forms.Label();
       this.Home = new System.Windows.Forms.TabControl();
-      this.lnkWorkoutDaysCount = new System.Windows.Forms.LinkLabel();
+      this.lnkCheatMealDays = new System.Windows.Forms.LinkLabel();
       this.PredictionsTab.SuspendLayout();
       this.flwPanel.SuspendLayout();
       this.ProfileTab.SuspendLayout();
@@ -284,8 +284,8 @@ namespace FitnessApp
       // pnlCheatMeals
       // 
       this.pnlCheatMeals.BackColor = System.Drawing.Color.Coral;
+      this.pnlCheatMeals.Controls.Add(this.lnkCheatMealDays);
       this.pnlCheatMeals.Controls.Add(this.lnkAddCheatMeal);
-      this.pnlCheatMeals.Controls.Add(this.label2);
       this.pnlCheatMeals.Controls.Add(this.lblCheatMeals);
       this.pnlCheatMeals.Location = new System.Drawing.Point(528, 22);
       this.pnlCheatMeals.Name = "pnlCheatMeals";
@@ -304,18 +304,7 @@ namespace FitnessApp
       this.lnkAddCheatMeal.TabIndex = 4;
       this.lnkAddCheatMeal.TabStop = true;
       this.lnkAddCheatMeal.Text = "Add Cheat Meal";
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label2.ForeColor = System.Drawing.Color.Red;
-      this.label2.Location = new System.Drawing.Point(113, 84);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(64, 69);
-      this.label2.TabIndex = 3;
-      this.label2.Text = "1";
-      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lnkAddCheatMeal.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAddCheatMeal_LinkClicked);
       // 
       // lblCheatMeals
       // 
@@ -337,6 +326,19 @@ namespace FitnessApp
       this.pnlWorkouts.Name = "pnlWorkouts";
       this.pnlWorkouts.Size = new System.Drawing.Size(293, 236);
       this.pnlWorkouts.TabIndex = 0;
+      // 
+      // lnkWorkoutDaysCount
+      // 
+      this.lnkWorkoutDaysCount.AutoSize = true;
+      this.lnkWorkoutDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnkWorkoutDaysCount.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+      this.lnkWorkoutDaysCount.Location = new System.Drawing.Point(111, 84);
+      this.lnkWorkoutDaysCount.Name = "lnkWorkoutDaysCount";
+      this.lnkWorkoutDaysCount.Size = new System.Drawing.Size(63, 69);
+      this.lnkWorkoutDaysCount.TabIndex = 4;
+      this.lnkWorkoutDaysCount.TabStop = true;
+      this.lnkWorkoutDaysCount.Text = "1";
+      this.lnkWorkoutDaysCount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkWorkoutDaysCount_LinkClicked);
       // 
       // lnkAddWorkout
       // 
@@ -378,18 +380,18 @@ namespace FitnessApp
       this.Home.TabIndex = 0;
       this.Home.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnTabChanged);
       // 
-      // lnkWorkoutDaysCount
+      // lnkCheatMealDays
       // 
-      this.lnkWorkoutDaysCount.AutoSize = true;
-      this.lnkWorkoutDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lnkWorkoutDaysCount.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-      this.lnkWorkoutDaysCount.Location = new System.Drawing.Point(111, 84);
-      this.lnkWorkoutDaysCount.Name = "lnkWorkoutDaysCount";
-      this.lnkWorkoutDaysCount.Size = new System.Drawing.Size(63, 69);
-      this.lnkWorkoutDaysCount.TabIndex = 4;
-      this.lnkWorkoutDaysCount.TabStop = true;
-      this.lnkWorkoutDaysCount.Text = "1";
-      this.lnkWorkoutDaysCount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkWorkoutDaysCount_LinkClicked);
+      this.lnkCheatMealDays.AutoSize = true;
+      this.lnkCheatMealDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnkCheatMealDays.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+      this.lnkCheatMealDays.Location = new System.Drawing.Point(117, 84);
+      this.lnkCheatMealDays.Name = "lnkCheatMealDays";
+      this.lnkCheatMealDays.Size = new System.Drawing.Size(64, 69);
+      this.lnkCheatMealDays.TabIndex = 5;
+      this.lnkCheatMealDays.TabStop = true;
+      this.lnkCheatMealDays.Text = "0";
+      this.lnkCheatMealDays.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkCheatMealDays_LinkClicked);
       // 
       // Dashboard
       // 
@@ -436,7 +438,6 @@ namespace FitnessApp
     private System.Windows.Forms.TabPage HomeTab;
     private System.Windows.Forms.TabControl Home;
     private System.Windows.Forms.Panel pnlCheatMeals;
-    private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblCheatMeals;
     private System.Windows.Forms.Panel pnlWorkouts;
     private System.Windows.Forms.Label lblWorkouts;
@@ -446,5 +447,6 @@ namespace FitnessApp
     private System.Windows.Forms.LinkLabel lnkAddCheatMeal;
     private System.Windows.Forms.LinkLabel lnkAddWorkout;
     private System.Windows.Forms.LinkLabel lnkWorkoutDaysCount;
+    private System.Windows.Forms.LinkLabel lnkCheatMealDays;
   }
 }

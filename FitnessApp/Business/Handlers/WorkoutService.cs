@@ -20,6 +20,11 @@ namespace FitnessApp.Business.Handlers
         return WorkoutContext.GetWorkouts();
       }
 
+      public Workout GetWorkoutById(int id)
+      {
+        return WorkoutContext.GetWorkoutById(id);
+      }
+ 
       public void DeleteWorkout(int workoutId)
       {
         WorkoutContext.DeleteWorkout(workoutId);

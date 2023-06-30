@@ -38,10 +38,17 @@ namespace FitnessApp.CustomControls
     private void CreatePanel()
     {
       Location = new Point(0, _margin * _index);
-      Size = new Size(_size.Width, 70);
+      Size = new Size(_size.Width, _margin + 5);
       BackColor = Color.AliceBlue;
       CreateHeadLabel();
+      //CreateFields();
       CreateButtons();
+    }
+
+    private void CreateFields()
+    {
+      var fieldsPanel = _detailHelper.GetFields();
+      Controls.Add(fieldsPanel);
     }
 
     private void CreateButtons()
@@ -100,7 +107,7 @@ namespace FitnessApp.CustomControls
     {
       Label label = new Label();
       label.Text = _detailHelper.GetHeader();
-      label.Location = new Point(10, 10);
+      label.Location = new Point(20, 10);
       label.Font = new Font("Arial", 12.0F, System.Drawing.FontStyle.Regular,
         System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       Controls.Add(label);
@@ -110,7 +117,9 @@ namespace FitnessApp.CustomControls
     private void ViewButtonOnClick(object sender, EventArgs e)
     {
       Button viewButton = sender as Button;
-      MessageBox.Show($"{viewButton.Name}, {_isWorkout}, {_detailHelper.Detail.Id}");
+      ViewSpecificDetailsForm specForm = new ViewSpecificDetailsForm(_detailHelper.Detail.Id, _isWorkout);
+      specForm.Activate();
+      specForm.ShowDialog();
     }
 
     private void EditButtonOnClick(object sender, EventArgs e)

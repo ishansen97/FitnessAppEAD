@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Business\Handlers\CheatMealService.cs" />
     <Compile Include="Business\Handlers\WorkoutService.cs" />
+    <Compile Include="Business\Logic\Calorie\CalorieCounter.cs" />
+    <Compile Include="Business\Logic\Predictions\PredictionEngine.cs" />
     <Compile Include="CheatMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +57,7 @@
       <DependentUpon>CheatMealForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Context\CheatMealContext.cs" />
+    <Compile Include="Context\ExerciseContext.cs" />
     <Compile Include="Context\WorkoutContext.cs" />
     <Compile Include="CustomControls\DetailPanel.cs">
       <SubType>Component</SubType>
@@ -98,6 +101,12 @@
     <Compile Include="ViewInfoForm.Designer.cs">
       <DependentUpon>ViewInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewSpecificDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSpecificDetailsForm.Designer.cs">
+      <DependentUpon>ViewSpecificDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +138,9 @@
     <EmbeddedResource Include="ViewInfoForm.resx">
       <DependentUpon>ViewInfoForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSpecificDetailsForm.resx">
+      <DependentUpon>ViewSpecificDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkoutForm.resx">
       <DependentUpon>WorkoutForm.cs</DependentUpon>

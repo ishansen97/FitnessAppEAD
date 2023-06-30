@@ -17,6 +17,7 @@ namespace FitnessApp
   {
     private bool _isProfileLoaded;
     private WorkoutService _workoutService;
+    private CheatMealService _cheatMealService;
 
     public Dashboard()
     {
@@ -24,7 +25,9 @@ namespace FitnessApp
       //string newHeader = 
       ChangeHeader();
       _workoutService = new WorkoutService();
+      _cheatMealService = new CheatMealService();
       lnkWorkoutDaysCount.Text = $"{_workoutService.GetWorkouts().Count}";
+      lnkCheatMealDays.Text = $"{_cheatMealService.GetCheatMeals().Count}";
     }
 
     private void ChangeHeader()
@@ -64,6 +67,22 @@ namespace FitnessApp
     private void lnkWorkoutDaysCount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       ViewInfoForm viewForm = new ViewInfoForm(true);
+      Hide();
+      viewForm.Activate();
+      viewForm.ShowDialog();
+    }
+
+    private void lnkAddCheatMeal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      CheatMealForm cheatMealForm = new CheatMealForm();
+      Hide();
+      cheatMealForm.Activate();
+      cheatMealForm.ShowDialog();
+    }
+
+    private void lnkCheatMealDays_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      ViewInfoForm viewForm = new ViewInfoForm(false);
       Hide();
       viewForm.Activate();
       viewForm.ShowDialog();

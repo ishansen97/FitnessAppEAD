@@ -12,6 +12,6 @@ namespace FitnessApp.Models
     {
       public MealType MealType { get; set; }
 
-      public int Gram { get; set; }
+      public double Gram { get; set; }
     }
 }

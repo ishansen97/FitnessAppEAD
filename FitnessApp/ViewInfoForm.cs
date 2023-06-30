@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FitnessApp.Business.Handlers;
 using FitnessApp.CustomControls;
+using FitnessApp.Extensions;
 using FitnessApp.Helpers;
 
 namespace FitnessApp
@@ -17,6 +18,7 @@ namespace FitnessApp
   public partial class ViewInfoForm : Form
   {
     private WorkoutService _workoutService;
+    private CheatMealService _cheatMealService;
     private bool _isWorkout;
     public delegate void OnCloseEvent(int num);
 
@@ -30,6 +32,7 @@ namespace FitnessApp
       InitializeComponent();
       _isWorkout = isWorkout;
       _workoutService = new WorkoutService();
+      _cheatMealService = new CheatMealService();
       SetCheckBoxStatus();
       LoadDetailPanels();
     }
@@ -42,6 +45,8 @@ namespace FitnessApp
 
     private void LoadDetailPanels()
     {
+      //pnlMain.Controls.Clear();
+      //pnlMain.Controls.RemoveControls(new Control[] {pnlSelections}, false);
       if (_isWorkout)
       {
         // get the workouts.
@@ -49,6 +54,7 @@ namespace FitnessApp
         if (!userWorkouts.Any())
         {
           // display message.
+          lblNoContentMessage.Text = "No workouts were found.";
           lblNoContentMessage.Visible = true;
         }
         else
@@ -69,9 +75,27 @@ namespace FitnessApp
       else
       {
         // get the cheat meals.
+        var cheatMeals = _cheatMealService.GetCheatMeals();
+        if (!cheatMeals.Any())
+        {
+          lblNoContentMessage.Text = "No cheat meals were found.";
+          lblNoContentMessage.Visible = true;
+        }
+        else
+        {
+          Size panelSize = pnlMain.Size;
+          int margin = pnlSelections.Height;
+          int index = 1;
+          foreach (var cheatMeal in cheatMeals)
+          {
+            var detailHelper = new DetailHelper(cheatMeal);
+            var detailPanel = new DetailPanel(index, detailHelper, panelSize, margin, _isWorkout);
+            detailPanel.CloseMainForm += DetailPanelOnCloseMainForm;
+            pnlMain.Controls.Add(detailPanel);
+            index++;
+          }
+        }
       }
-      /*var customPanel = new DetailPanel(string.Empty, pnlMain.Size, pnlSelections.Height, _isWorkout);
-      pnlMain.Controls.Add(customPanel);*/
     }
 
     private void DetailPanelOnCloseMainForm(object sender, EventArgs e)
@@ -86,5 +110,31 @@ namespace FitnessApp
       dashboard.Activate();
       dashboard.ShowDialog();
     }
+
+    private void LoadNewViewForm()
+    {
+      ViewInfoForm form = new ViewInfoForm(_isWorkout);
+      Hide();
+      form.Activate();
+      form.ShowDialog();
+    }
+
+    #region Radio button checked changes
+    private void rdbWorkout_Clicked(object sender, MouseEventArgs e)
+    {
+      RadioButton rdb = sender as RadioButton;
+      _isWorkout = rdb.Checked;
+      //LoadDetailPanels();
+      LoadNewViewForm();
+    }
+
+    private void rdbCheatMeals_Clicked(object sender, MouseEventArgs e)
+    {
+      RadioButton rdb = sender as RadioButton;
+      _isWorkout = !rdb.Checked;
+      //LoadDetailPanels();
+      LoadNewViewForm();
+    }
+    #endregion
   }
 }

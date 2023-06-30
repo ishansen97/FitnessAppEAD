@@ -51,5 +51,31 @@ namespace FitnessApp.Extensions
 
         return false;
       }
+
+      public static void RemoveControls(this Control.ControlCollection controls, Control[] controlsToRemove, bool removeThese = true)
+      {
+        List<Control> exceptControls = new List<Control>();
+
+        if (removeThese)
+        {
+          foreach (Control control in controls)
+          {
+            if (controlsToRemove.Contains(control))
+            {
+              controls.Remove(control);
+            }
+          }
+        }
+        else
+        {
+          foreach (Control control in controls)
+          {
+            if (!controlsToRemove.Contains(control))
+            {
+              controls.Remove(control);
+            }
+          }
+        }
+      }
     }
 }

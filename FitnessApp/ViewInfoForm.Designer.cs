@@ -30,12 +30,12 @@ namespace FitnessApp
     private void InitializeComponent()
     {
       this.pnlMain = new System.Windows.Forms.Panel();
+      this.lblNoContentMessage = new System.Windows.Forms.Label();
       this.pnlSelections = new System.Windows.Forms.Panel();
       this.rdbCheatMeals = new System.Windows.Forms.RadioButton();
       this.rdbWorkouts = new System.Windows.Forms.RadioButton();
       this.lblViewOnly = new System.Windows.Forms.Label();
       this.lblHeader = new System.Windows.Forms.Label();
-      this.lblNoContentMessage = new System.Windows.Forms.Label();
       this.btnBack = new System.Windows.Forms.Button();
       this.pnlMain.SuspendLayout();
       this.pnlSelections.SuspendLayout();
@@ -52,8 +52,21 @@ namespace FitnessApp
       this.pnlMain.Size = new System.Drawing.Size(845, 464);
       this.pnlMain.TabIndex = 0;
       // 
+      // lblNoContentMessage
+      // 
+      this.lblNoContentMessage.AutoSize = true;
+      this.lblNoContentMessage.BackColor = System.Drawing.SystemColors.Control;
+      this.lblNoContentMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblNoContentMessage.Location = new System.Drawing.Point(177, 122);
+      this.lblNoContentMessage.Name = "lblNoContentMessage";
+      this.lblNoContentMessage.Size = new System.Drawing.Size(418, 55);
+      this.lblNoContentMessage.TabIndex = 1;
+      this.lblNoContentMessage.Text = "No Content Found";
+      this.lblNoContentMessage.Visible = false;
+      // 
       // pnlSelections
       // 
+      this.pnlSelections.AutoScroll = true;
       this.pnlSelections.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.pnlSelections.Controls.Add(this.rdbCheatMeals);
       this.pnlSelections.Controls.Add(this.rdbWorkouts);
@@ -74,6 +87,7 @@ namespace FitnessApp
       this.rdbCheatMeals.TabStop = true;
       this.rdbCheatMeals.Text = "Cheat Meals";
       this.rdbCheatMeals.UseVisualStyleBackColor = true;
+      this.rdbCheatMeals.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbCheatMeals_Clicked);
       // 
       // rdbWorkouts
       // 
@@ -86,6 +100,7 @@ namespace FitnessApp
       this.rdbWorkouts.TabStop = true;
       this.rdbWorkouts.Text = "Workouts";
       this.rdbWorkouts.UseVisualStyleBackColor = true;
+      this.rdbWorkouts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rdbWorkout_Clicked);
       // 
       // lblViewOnly
       // 
@@ -108,18 +123,6 @@ namespace FitnessApp
       this.lblHeader.TabIndex = 0;
       this.lblHeader.Text = "View Workouts/Cheat Meals";
       // 
-      // lblNoContentMessage
-      // 
-      this.lblNoContentMessage.AutoSize = true;
-      this.lblNoContentMessage.BackColor = System.Drawing.SystemColors.Control;
-      this.lblNoContentMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblNoContentMessage.Location = new System.Drawing.Point(177, 122);
-      this.lblNoContentMessage.Name = "lblNoContentMessage";
-      this.lblNoContentMessage.Size = new System.Drawing.Size(418, 55);
-      this.lblNoContentMessage.TabIndex = 1;
-      this.lblNoContentMessage.Text = "No Content Found";
-      this.lblNoContentMessage.Visible = false;
-      // 
       // btnBack
       // 
       this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,6 +138,7 @@ namespace FitnessApp
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.AutoScroll = true;
       this.ClientSize = new System.Drawing.Size(1012, 655);
       this.Controls.Add(this.btnBack);
       this.Controls.Add(this.lblHeader);
