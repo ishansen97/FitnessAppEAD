@@ -676,18 +676,18 @@ namespace FitnessApp
       // pbWorkoutsSummary
       // 
       this.pbWorkoutsSummary.Image = global::FitnessApp.Properties.Resources.running;
-      this.pbWorkoutsSummary.Location = new System.Drawing.Point(67, 39);
+      this.pbWorkoutsSummary.Location = new System.Drawing.Point(66, 39);
       this.pbWorkoutsSummary.Name = "pbWorkoutsSummary";
-      this.pbWorkoutsSummary.Size = new System.Drawing.Size(129, 129);
+      this.pbWorkoutsSummary.Size = new System.Drawing.Size(143, 146);
       this.pbWorkoutsSummary.TabIndex = 1;
       this.pbWorkoutsSummary.TabStop = false;
       // 
       // pbCheatMealSummary
       // 
       this.pbCheatMealSummary.Image = global::FitnessApp.Properties.Resources.pizza;
-      this.pbCheatMealSummary.Location = new System.Drawing.Point(449, 39);
+      this.pbCheatMealSummary.Location = new System.Drawing.Point(448, 39);
       this.pbCheatMealSummary.Name = "pbCheatMealSummary";
-      this.pbCheatMealSummary.Size = new System.Drawing.Size(131, 129);
+      this.pbCheatMealSummary.Size = new System.Drawing.Size(145, 146);
       this.pbCheatMealSummary.TabIndex = 2;
       this.pbCheatMealSummary.TabStop = false;
       // 
