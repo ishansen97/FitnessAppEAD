@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Handlers\CheatMealService.cs" />
+    <Compile Include="Business\Handlers\PredictionService.cs" />
     <Compile Include="Business\Handlers\WorkoutService.cs" />
     <Compile Include="Business\Logic\Calorie\CalorieCounter.cs" />
+    <Compile Include="Business\Logic\Constants\PredictionConstants.cs" />
     <Compile Include="Business\Logic\Predictions\PredictionEngine.cs" />
     <Compile Include="CheatMealForm.cs">
       <SubType>Form</SubType>
@@ -58,11 +60,13 @@
     </Compile>
     <Compile Include="Context\CheatMealContext.cs" />
     <Compile Include="Context\ExerciseContext.cs" />
+    <Compile Include="Context\MealContext.cs" />
     <Compile Include="Context\WorkoutContext.cs" />
     <Compile Include="CustomControls\DetailPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\FormsControlExtensions.cs" />
+    <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DetailHelper.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\FormControlHelper.cs" />
@@ -83,7 +87,9 @@
     <Compile Include="Models\CheatMeal.cs" />
     <Compile Include="Models\Enums\ExerciseType.cs" />
     <Compile Include="Models\Enums\MealType.cs" />
+    <Compile Include="Models\Enums\PredictionState.cs" />
     <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Models\Workout.cs" />
@@ -175,6 +181,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\details_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\running.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

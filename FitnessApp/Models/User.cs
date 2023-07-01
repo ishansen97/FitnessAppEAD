@@ -18,6 +18,6 @@ namespace FitnessApp.Models
 
       public int Height { get; set; }
 
-      public float Weight { get; set; }
+      public double Weight { get; set; }
     }
 }

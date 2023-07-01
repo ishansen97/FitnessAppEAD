@@ -41,7 +41,6 @@ namespace FitnessApp
       InitializeHeaderLabel();
       InitializeActivityTypeLabel();
       LoadDetail();
-      ViewDate();
     }
 
     private void InitializeHeaderLabel()
@@ -72,14 +71,20 @@ namespace FitnessApp
         _detail = _cheatMealService.GetCheatMealById(_contentId);
       }
 
-      var detailHelper = new DetailHelper(_detail);
+      var detailHelper = new DetailHelper(_detail, pnlFieldsPanel.Size);
       lblActivity.Text = detailHelper.GetHeader();
-    }
-
-    private void ViewDate()
-    {
       lblDateInfo.Text = _detail.Created.ToString("yyyy MMMM dd");
+
+      // load fields to the panel.
+      pnlFieldsPanel.Controls.Add(detailHelper.GetFields());
     }
 
+    private void btnOk_Click(object sender, EventArgs e)
+    {
+      ViewInfoForm infoForm = new ViewInfoForm(_isWorkout);
+      Hide();
+      infoForm.Activate();
+      infoForm.ShowDialog();
+    }
   }
 }

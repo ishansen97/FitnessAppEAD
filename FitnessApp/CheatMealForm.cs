@@ -44,7 +44,7 @@ namespace FitnessApp
       CheatMeal cheatMeal = new CheatMeal
       {
         MealType = cheatMealType,
-        Gram = grams,
+        MealAmount = grams,
         Created = date
       };
 

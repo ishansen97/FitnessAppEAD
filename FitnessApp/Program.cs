@@ -29,6 +29,7 @@ namespace FitnessApp
       WorkoutContext.InitializeWorkoutContext();
       CheatMealContext.InitializeCheatMealContext();
       ExerciseContext.InitializeExerciseContext();
+      MealContext.InitializeMealContext();
     }
   }
 }

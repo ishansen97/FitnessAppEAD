@@ -31,11 +31,12 @@ namespace FitnessApp
     {
       this.lblViewDetailsHeader = new System.Windows.Forms.Label();
       this.pnlDetailView = new System.Windows.Forms.Panel();
-      this.lblActivityType = new System.Windows.Forms.Label();
-      this.lblDate = new System.Windows.Forms.Label();
-      this.lblActivity = new System.Windows.Forms.Label();
-      this.lblDateInfo = new System.Windows.Forms.Label();
       this.pnlFieldsPanel = new System.Windows.Forms.Panel();
+      this.lblDateInfo = new System.Windows.Forms.Label();
+      this.lblActivity = new System.Windows.Forms.Label();
+      this.lblDate = new System.Windows.Forms.Label();
+      this.lblActivityType = new System.Windows.Forms.Label();
+      this.btnOk = new System.Windows.Forms.Button();
       this.pnlDetailView.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -52,6 +53,7 @@ namespace FitnessApp
       // pnlDetailView
       // 
       this.pnlDetailView.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.pnlDetailView.Controls.Add(this.btnOk);
       this.pnlDetailView.Controls.Add(this.pnlFieldsPanel);
       this.pnlDetailView.Controls.Add(this.lblDateInfo);
       this.pnlDetailView.Controls.Add(this.lblActivity);
@@ -62,25 +64,23 @@ namespace FitnessApp
       this.pnlDetailView.Size = new System.Drawing.Size(697, 414);
       this.pnlDetailView.TabIndex = 1;
       // 
-      // lblActivityType
+      // pnlFieldsPanel
       // 
-      this.lblActivityType.AutoSize = true;
-      this.lblActivityType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblActivityType.Location = new System.Drawing.Point(35, 33);
-      this.lblActivityType.Name = "lblActivityType";
-      this.lblActivityType.Size = new System.Drawing.Size(175, 29);
-      this.lblActivityType.TabIndex = 0;
-      this.lblActivityType.Text = "Workout Type";
+      this.pnlFieldsPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.pnlFieldsPanel.Location = new System.Drawing.Point(25, 168);
+      this.pnlFieldsPanel.Name = "pnlFieldsPanel";
+      this.pnlFieldsPanel.Size = new System.Drawing.Size(466, 154);
+      this.pnlFieldsPanel.TabIndex = 5;
       // 
-      // lblDate
+      // lblDateInfo
       // 
-      this.lblDate.AutoSize = true;
-      this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblDate.Location = new System.Drawing.Point(35, 100);
-      this.lblDate.Name = "lblDate";
-      this.lblDate.Size = new System.Drawing.Size(67, 29);
-      this.lblDate.TabIndex = 1;
-      this.lblDate.Text = "Date";
+      this.lblDateInfo.AutoSize = true;
+      this.lblDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblDateInfo.Location = new System.Drawing.Point(348, 100);
+      this.lblDateInfo.Name = "lblDateInfo";
+      this.lblDateInfo.Size = new System.Drawing.Size(67, 29);
+      this.lblDateInfo.TabIndex = 4;
+      this.lblDateInfo.Text = "Date";
       // 
       // lblActivity
       // 
@@ -92,23 +92,36 @@ namespace FitnessApp
       this.lblActivity.TabIndex = 3;
       this.lblActivity.Text = "Test";
       // 
-      // lblDateInfo
+      // lblDate
       // 
-      this.lblDateInfo.AutoSize = true;
-      this.lblDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblDateInfo.Location = new System.Drawing.Point(350, 100);
-      this.lblDateInfo.Name = "lblDateInfo";
-      this.lblDateInfo.Size = new System.Drawing.Size(67, 29);
-      this.lblDateInfo.TabIndex = 4;
-      this.lblDateInfo.Text = "Date";
+      this.lblDate.AutoSize = true;
+      this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblDate.Location = new System.Drawing.Point(35, 100);
+      this.lblDate.Name = "lblDate";
+      this.lblDate.Size = new System.Drawing.Size(67, 29);
+      this.lblDate.TabIndex = 1;
+      this.lblDate.Text = "Date";
       // 
-      // pnlFieldsPanel
+      // lblActivityType
       // 
-      this.pnlFieldsPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.pnlFieldsPanel.Location = new System.Drawing.Point(37, 168);
-      this.pnlFieldsPanel.Name = "pnlFieldsPanel";
-      this.pnlFieldsPanel.Size = new System.Drawing.Size(454, 175);
-      this.pnlFieldsPanel.TabIndex = 5;
+      this.lblActivityType.AutoSize = true;
+      this.lblActivityType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblActivityType.Location = new System.Drawing.Point(35, 33);
+      this.lblActivityType.Name = "lblActivityType";
+      this.lblActivityType.Size = new System.Drawing.Size(175, 29);
+      this.lblActivityType.TabIndex = 0;
+      this.lblActivityType.Text = "Workout Type";
+      // 
+      // btnOk
+      // 
+      this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnOk.Location = new System.Drawing.Point(287, 344);
+      this.btnOk.Name = "btnOk";
+      this.btnOk.Size = new System.Drawing.Size(89, 38);
+      this.btnOk.TabIndex = 6;
+      this.btnOk.Text = "Ok";
+      this.btnOk.UseVisualStyleBackColor = true;
+      this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
       // 
       // ViewSpecificDetailsForm
       // 
@@ -135,5 +148,6 @@ namespace FitnessApp
     private System.Windows.Forms.Label lblDate;
     private System.Windows.Forms.Label lblActivityType;
     private System.Windows.Forms.Panel pnlFieldsPanel;
+    private System.Windows.Forms.Button btnOk;
   }
 }

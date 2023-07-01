@@ -41,14 +41,8 @@ namespace FitnessApp.CustomControls
       Size = new Size(_size.Width, _margin + 5);
       BackColor = Color.AliceBlue;
       CreateHeadLabel();
-      //CreateFields();
+      //CreateDateLabel();
       CreateButtons();
-    }
-
-    private void CreateFields()
-    {
-      var fieldsPanel = _detailHelper.GetFields();
-      Controls.Add(fieldsPanel);
     }
 
     private void CreateButtons()

@@ -15,6 +15,7 @@ namespace FitnessApp.Helpers
   public class DetailHelper
   {
     private Detail _detail;
+    private Size _parentSize;
 
     public Detail Detail
     {
@@ -27,6 +28,12 @@ namespace FitnessApp.Helpers
     public DetailHelper(Detail detail)
     {
       _detail = detail;
+    }
+
+    public DetailHelper(Detail detail, Size size)
+    {
+      _detail = detail;
+      _parentSize = size;
     }
 
     public string GetHeader()
@@ -49,9 +56,9 @@ namespace FitnessApp.Helpers
     public Panel GetFields()
     {
       Panel panel = new Panel();
-      panel.Location = new Point(15, 25);
-      panel.BackColor = Color.Blue;
-      panel.Size = new Size(100, 40);
+      panel.Location = new Point(0,0);
+      //panel.BackColor = Color.Blue;
+      panel.Size = new Size(_parentSize.Width, _parentSize.Height);
       if (_detail.GetType() == typeof(Workout))
       {
         CreateWorkoutFields(panel);
@@ -68,7 +75,7 @@ namespace FitnessApp.Helpers
     {
       CheatMeal cheatMeal = (CheatMeal)_detail;
       // key label
-      CreateFieldValues(panel, 0, "Amount", cheatMeal.Gram);
+      CreateFieldValues(panel, 0, "Amount (in grams)", cheatMeal.MealAmount);
     }
 
     private void CreateWorkoutFields(Panel panel)
@@ -85,23 +92,56 @@ namespace FitnessApp.Helpers
 
     private void CreateFieldValues(Panel panel, int margin, string key, double value)
     {
-      int y = 5 * margin;
+      int y = 45 * margin;
       Label keyLabel = new Label();
       keyLabel.Text = key;
       keyLabel.Location = new Point(5, y);
-      keyLabel.Font = new Font("Arial", 10.0F, System.Drawing.FontStyle.Regular,
+      keyLabel.Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold,
         System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      keyLabel.ForeColor = Color.Red;
+      keyLabel.ForeColor = Color.Black;
 
       Label valueLabel = new Label();
-      valueLabel.Text = value.ToString(CultureInfo.InvariantCulture);
-      valueLabel.Location = new Point(10, y);
-      valueLabel.Font = new Font("Arial", 10.0F, System.Drawing.FontStyle.Regular,
+      valueLabel.Text = GetFieldValueForText(key, value).ToString(CultureInfo.InvariantCulture);
+      valueLabel.Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold,
         System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      valueLabel.ForeColor = Color.Red;
+      valueLabel.ForeColor = Color.Black;
+      // positioning the value label correctly.
+      int gap = _parentSize.Width - (keyLabel.Width + valueLabel.Width);
+      int valueX = keyLabel.Width + gap;
+      valueLabel.Location = new Point(valueX, y);
 
       panel.Controls.Add(keyLabel);
       panel.Controls.Add(valueLabel);
+    }
+
+    private string GetFieldValueForText(string key, double value)
+    {
+      string valueText = string.Empty;
+      if (_detail.GetType() == typeof(Workout))
+      {
+        var workout = (Workout)_detail;
+        switch (key)
+        {
+          case "Weight":
+            valueText = $"{value} kg";
+            break;
+          case "Distance":
+            valueText = $"{value} km";
+            break;
+          case "Time":
+            valueText = $"{value} min";
+            break;
+          case "Reps":
+            valueText = $"{value}";
+            break;
+        }
+      }
+      else if (_detail.GetType() == typeof(CheatMeal))
+      {
+        valueText = $"{value} g";
+      }
+
+      return valueText;
     }
   }
 }
