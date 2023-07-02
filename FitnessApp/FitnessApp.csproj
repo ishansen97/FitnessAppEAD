@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Business\Handlers\CheatMealService.cs" />
     <Compile Include="Business\Handlers\PredictionService.cs" />
+    <Compile Include="Business\Handlers\WeeklyViewService.cs" />
     <Compile Include="Business\Handlers\WorkoutService.cs" />
     <Compile Include="Business\Logic\Calorie\CalorieCounter.cs" />
     <Compile Include="Business\Logic\Constants\PredictionConstants.cs" />
@@ -62,8 +63,32 @@
     <Compile Include="Context\ExerciseContext.cs" />
     <Compile Include="Context\MealContext.cs" />
     <Compile Include="Context\WorkoutContext.cs" />
+    <Compile Include="CustomControls\DailyCheatMealSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DailyCheatMealSummary.Designer.cs">
+      <DependentUpon>DailyCheatMealSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\DailyPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DailyPanel.Designer.cs">
+      <DependentUpon>DailyPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\DailyWorkoutSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DailyWorkoutSummary.Designer.cs">
+      <DependentUpon>DailyWorkoutSummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\DetailPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ContentFields.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ContentFields.Designer.cs">
+      <DependentUpon>ContentFields.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\FormsControlExtensions.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
@@ -85,6 +110,7 @@
     </Compile>
     <Compile Include="Models\Abstractions\Detail.cs" />
     <Compile Include="Models\CheatMeal.cs" />
+    <Compile Include="Models\DailyDetail.cs" />
     <Compile Include="Models\Enums\ExerciseType.cs" />
     <Compile Include="Models\Enums\MealType.cs" />
     <Compile Include="Models\Enums\PredictionState.cs" />
@@ -100,6 +126,12 @@
     </Compile>
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDailyDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewDailyDetail.Designer.cs">
+      <DependentUpon>ViewDailyDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewInfoForm.cs">
       <SubType>Form</SubType>
@@ -122,6 +154,18 @@
     <EmbeddedResource Include="CheatMealForm.resx">
       <DependentUpon>CheatMealForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DailyCheatMealSummary.resx">
+      <DependentUpon>DailyCheatMealSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DailyPanel.resx">
+      <DependentUpon>DailyPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DailyWorkoutSummary.resx">
+      <DependentUpon>DailyWorkoutSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ContentFields.resx">
+      <DependentUpon>ContentFields.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDailyDetail.resx">
+      <DependentUpon>ViewDailyDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewInfoForm.resx">
       <DependentUpon>ViewInfoForm.cs</DependentUpon>

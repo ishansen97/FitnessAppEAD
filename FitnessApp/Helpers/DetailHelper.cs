@@ -114,7 +114,7 @@ namespace FitnessApp.Helpers
       panel.Controls.Add(valueLabel);
     }
 
-    private string GetFieldValueForText(string key, double value)
+    public string GetFieldValueForText(string key, double value)
     {
       string valueText = string.Empty;
       if (_detail.GetType() == typeof(Workout))

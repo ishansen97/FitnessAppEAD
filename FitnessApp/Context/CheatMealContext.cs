@@ -69,5 +69,25 @@ namespace FitnessApp.Context
         _cheatMeals[userName] = cheatMeals;
       }
     }
+
+    public static List<CheatMeal> GetWeeklyCheatMeals(DateTime startDate, DateTime endDate, bool isSorted = true)
+    {
+      string userName = UserContext.CurrentProfile.UserName;
+      var weeklyCheatMeals = new List<CheatMeal>();
+      if (_cheatMeals.ContainsKey(userName))
+      {
+        var cheatMeals = (List<CheatMeal>)_cheatMeals[userName];
+        var searchedCheatMeals = cheatMeals.Where(cm => cm.Created >= startDate && cm.Created <= endDate);
+        if (isSorted)
+        {
+          weeklyCheatMeals = searchedCheatMeals.OrderBy(cm => cm.Created).ToList();
+        }
+        else
+        {
+          weeklyCheatMeals = searchedCheatMeals.ToList();
+        }
+      }
+      return weeklyCheatMeals;
+    }
   }
 }

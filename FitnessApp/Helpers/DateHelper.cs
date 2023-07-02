@@ -10,12 +10,7 @@ namespace FitnessApp.Helpers
   {
     public static string CreateWeekText(DateTime dt)
     {
-      var dayOfWeek = dt.DayOfWeek;
-      int daysAfterStartOfWeek = -((int)dayOfWeek % 7);
-      int daysBeforeEndOfWeek = daysAfterStartOfWeek + 6;
-
-      var startOfWeekDate = dt.AddDays(daysAfterStartOfWeek);
-      var endOfWeekDate = dt.AddDays(daysBeforeEndOfWeek);
+      var (startOfWeekDate, endOfWeekDate) = GetStartEndWeekDates(dt);
 
       var startOfWeekFormatted = startOfWeekDate.ToString("yyyy MMMM dd");
       var endOfWeekFormatted = endOfWeekDate.ToString("yyyy MMMM dd");
@@ -27,6 +22,35 @@ namespace FitnessApp.Helpers
       var endOfWeekMonthDate = string.Concat(endOfWeekSplitted[1], " ", endOfWeekSplitted[2]);
 
       return string.Concat(startOfWeekMonthDate, " - ", endOfWeekMonthDate);
+    }
+
+    public static (DateTime startDate, DateTime endDate) GetStartEndWeekDates(DateTime date)
+    {
+      var dayOfWeek = date.DayOfWeek;
+      int daysAfterStartOfWeek = -((int)dayOfWeek % 7);
+      int daysBeforeEndOfWeek = daysAfterStartOfWeek + 6;
+
+      var startOfWeekDate = date.AddDays(daysAfterStartOfWeek);
+      var endOfWeekDate = date.AddDays(daysBeforeEndOfWeek);
+
+      return (startOfWeekDate, endOfWeekDate);
+    } 
+
+    public static List<DateTime> GetInBetweenDates(DateTime date)
+    {
+      var (startOfWeekDate, endOfWeekDate) = GetStartEndWeekDates(date);
+      var totalDays = (endOfWeekDate - startOfWeekDate).TotalDays;
+      var inBetweenDates = Enumerable.Range(1, (int)totalDays + 1)
+                                                  .Select(item => endOfWeekDate.AddDays(item - 7))
+                                                  .ToList();
+      return inBetweenDates;
+    }
+
+    public static string GetMonthAndDate(DateTime date)
+    {
+      var dateString = date.ToString("yyyy MMMM dd");
+      var splitted = dateString.Split(' ');
+      return string.Concat(splitted[1], " ", splitted[2]);
     }
   }
 }

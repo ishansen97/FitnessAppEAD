@@ -31,14 +31,6 @@ namespace FitnessApp.Extensions
         panel.Location = new Point(xLoc, yLoc);
       }
 
-      public static void AddValidationForTextBoxes(this Panel panel)
-      {
-        if (panel.Controls.ContainsControl<TextBox>())
-        {
-          
-        }
-      }
-
       public static bool ContainsControl<T>(this Control.ControlCollection controls) where T : Control
       {
         foreach (Control control in controls)

@@ -70,5 +70,25 @@ namespace FitnessApp.Context
         _workouts[userName] = workouts;
       }
     }
+
+    public static List<Workout> GetWeeklyWorkouts(DateTime startDate, DateTime endDate, bool isSorted = true)
+    {
+      string userName = UserContext.CurrentProfile.UserName;
+      var weeklyWorkouts = new List<Workout>();
+      if (_workouts.ContainsKey(userName))
+      {
+        var workouts = (List<Workout>)_workouts[userName];
+        var searchedWorkouts = workouts.Where(wk => wk.Created >= startDate && wk.Created <= endDate);
+        if (isSorted)
+        {
+          weeklyWorkouts = searchedWorkouts.OrderBy(wk => wk.Created).ToList();
+        }
+        else
+        {
+          weeklyWorkouts = searchedWorkouts.ToList();
+        }
+      }
+      return weeklyWorkouts;
+    }
   }
 }

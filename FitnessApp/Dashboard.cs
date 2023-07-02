@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FitnessApp.Business.Handlers;
 using FitnessApp.Context;
+using FitnessApp.CustomControls;
+using FitnessApp.Extensions;
 using FitnessApp.Helpers;
+using FitnessApp.Models;
 
 namespace FitnessApp
 {
@@ -20,6 +23,7 @@ namespace FitnessApp
     private WorkoutService _workoutService;
     private CheatMealService _cheatMealService;
     private PredictionService _predictionService;
+    private WeeklyViewService _weeklyViewService;
 
     public Dashboard()
     {
@@ -42,6 +46,7 @@ namespace FitnessApp
       _workoutService = new WorkoutService();
       _cheatMealService = new CheatMealService();
       _predictionService = new PredictionService();
+      _weeklyViewService = new WeeklyViewService();
     }
 
     private void ChangeHeader()
@@ -137,10 +142,14 @@ namespace FitnessApp
       {
         pbRightArrow.Visible = true;
       }
-      var lblDate = (DateTime)lblWeek.Tag;
-      var prevWeekDay = lblDate.AddDays(-7);
-      lblWeek.Text = DateHelper.CreateWeekText(prevWeekDay);
-      lblWeek.Tag = prevWeekDay;
+      else
+      {
+        var lblDate = (DateTime)lblWeek.Tag;
+        var prevWeekDay = lblDate.AddDays(-7);
+        lblWeek.Text = DateHelper.CreateWeekText(prevWeekDay);
+        lblWeek.Tag = prevWeekDay;
+        LoadWeeklyDetails(prevWeekDay);
+      }
     }
 
     private void pbRightArrow_Click(object sender, EventArgs e)
@@ -155,12 +164,49 @@ namespace FitnessApp
       {
         lblWeek.Text = DateHelper.CreateWeekText(nextWeekDay);
         lblWeek.Tag = nextWeekDay;
+        LoadWeeklyDetails(nextWeekDay);
       }
     }
 
-    private void btnWeeklyView_Click(object sender, EventArgs e)
+    private bool IsWeeklyDetailsAvailable(DateTime date)
     {
+      return _weeklyViewService.WeeklyDetailsAvailable(date);
+    }
 
+    private void LoadWeeklyDetails(DateTime date)
+    {
+      pnlDailyPanelLists.Controls.Clear();
+      if (!IsWeeklyDetailsAvailable(date))
+      {
+        lblWeeklyContentHeader.Visible = true;
+      }
+      else
+      {
+        lblWeeklyContentHeader.Visible = false;
+        var weeklyDetails = _weeklyViewService.GetWeeklyDetails(date);
+        AddWeeklyViewPanel(weeklyDetails);
+      }
+    }
+
+    private void AddWeeklyViewPanel(List<DailyDetail> data)
+    {
+      int panelHeight = 0;
+      int index = 0;
+      foreach (var dailyDetail in data)
+      {
+        var dailyPanel = new DailyPanel(dailyDetail);
+        if (index == 0)
+        {
+          panelHeight = 0;
+        }
+        else
+        {
+          panelHeight += dailyPanel.Height;
+        }
+        dailyPanel.Location = new Point(0, panelHeight);
+        pnlDailyPanelLists.Controls.Add(dailyPanel);
+        index++;
+      }
     }
   }
 }

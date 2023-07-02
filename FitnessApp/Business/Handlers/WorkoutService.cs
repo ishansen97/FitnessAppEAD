@@ -29,5 +29,10 @@ namespace FitnessApp.Business.Handlers
       {
         WorkoutContext.DeleteWorkout(workoutId);
       }
+
+      public List<Workout> GetWeeklyWorkouts(DateTime startDate, DateTime endDate)
+      {
+        return WorkoutContext.GetWeeklyWorkouts(startDate, endDate);
+      }
     }
 }
