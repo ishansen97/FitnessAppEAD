@@ -103,6 +103,16 @@ namespace FitnessApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dumbbell_32 {
+            get {
+                object obj = ResourceManager.GetObject("dumbbell_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -196,6 +206,16 @@ namespace FitnessApp.Properties {
         internal static System.Drawing.Bitmap running {
             get {
                 object obj = ResourceManager.GetObject("running", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap running_32 {
+            get {
+                object obj = ResourceManager.GetObject("running_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

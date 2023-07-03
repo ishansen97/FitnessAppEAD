@@ -49,7 +49,7 @@ namespace FitnessApp.CustomControls
       this.btnViewMore.BackColor = System.Drawing.SystemColors.Menu;
       this.btnViewMore.FlatAppearance.BorderSize = 5;
       this.btnViewMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnViewMore.Location = new System.Drawing.Point(522, 30);
+      this.btnViewMore.Location = new System.Drawing.Point(466, 36);
       this.btnViewMore.Name = "btnViewMore";
       this.btnViewMore.Size = new System.Drawing.Size(155, 38);
       this.btnViewMore.TabIndex = 3;
@@ -62,7 +62,7 @@ namespace FitnessApp.CustomControls
       this.lblDailyPanelMessage.AutoSize = true;
       this.lblDailyPanelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblDailyPanelMessage.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-      this.lblDailyPanelMessage.Location = new System.Drawing.Point(270, 41);
+      this.lblDailyPanelMessage.Location = new System.Drawing.Point(222, 42);
       this.lblDailyPanelMessage.Name = "lblDailyPanelMessage";
       this.lblDailyPanelMessage.Size = new System.Drawing.Size(167, 25);
       this.lblDailyPanelMessage.TabIndex = 4;
@@ -77,7 +77,7 @@ namespace FitnessApp.CustomControls
       this.Controls.Add(this.btnViewMore);
       this.Controls.Add(this.lblDate);
       this.Name = "DailyPanel";
-      this.Size = new System.Drawing.Size(700, 104);
+      this.Size = new System.Drawing.Size(636, 104);
       this.ResumeLayout(false);
       this.PerformLayout();
 

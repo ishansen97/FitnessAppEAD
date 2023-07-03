@@ -90,5 +90,18 @@ namespace FitnessApp.Context
       }
       return weeklyWorkouts;
     }
+
+    public static void EditWorkout(int workoutId, Workout newWorkout)
+    {
+      string userName = UserContext.CurrentProfile.UserName;
+      if (_workouts.ContainsKey(userName))
+      {
+        var workouts = (List<Workout>)_workouts[userName];
+        var workout = workouts.First(wk => wk.Id == workoutId);
+        // modify
+        workout.Fields = newWorkout.Fields;
+        workout.Created = newWorkout.Created;
+      }
+    }
   }
 }

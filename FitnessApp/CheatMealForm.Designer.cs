@@ -46,7 +46,7 @@ namespace FitnessApp
       // 
       // pnlWorkout
       // 
-      this.pnlWorkout.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.pnlWorkout.BackColor = System.Drawing.SystemColors.Control;
       this.pnlWorkout.Controls.Add(this.dtCheatMealPicker);
       this.pnlWorkout.Controls.Add(this.lblCheatMealDate);
       this.pnlWorkout.Controls.Add(this.txtAmount);
@@ -64,11 +64,10 @@ namespace FitnessApp
       // 
       this.dtCheatMealPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
       this.dtCheatMealPicker.Location = new System.Drawing.Point(267, 254);
-      this.dtCheatMealPicker.MaxDate = new System.DateTime(2023, 6, 29, 0, 0, 0, 0);
       this.dtCheatMealPicker.Name = "dtCheatMealPicker";
       this.dtCheatMealPicker.Size = new System.Drawing.Size(157, 22);
       this.dtCheatMealPicker.TabIndex = 11;
-      this.dtCheatMealPicker.Value = new System.DateTime(2023, 6, 29, 0, 0, 0, 0);
+      this.dtCheatMealPicker.Value = new System.DateTime(2023, 7, 3, 0, 0, 0, 0);
       // 
       // lblCheatMealDate
       // 
@@ -151,6 +150,7 @@ namespace FitnessApp
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.ClientSize = new System.Drawing.Size(1027, 592);
       this.Controls.Add(this.pnlWorkout);
       this.Name = "CheatMealForm";

@@ -89,5 +89,18 @@ namespace FitnessApp.Context
       }
       return weeklyCheatMeals;
     }
+
+    public static void EditCheatMeal(int cheatMealId, CheatMeal newCheatMeal)
+    {
+      string userName = UserContext.CurrentProfile.UserName;
+      if (_cheatMeals.ContainsKey(userName))
+      {
+        var cheatMeals = (List<CheatMeal>)_cheatMeals[userName];
+        var cheatMeal = cheatMeals.First(cm => cm.Id == cheatMealId);
+        // modify
+        cheatMeal.MealAmount = newCheatMeal.MealAmount;
+        cheatMeal.Created = newCheatMeal.Created;
+      }
+    }
   }
 }

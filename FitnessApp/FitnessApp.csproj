@@ -90,6 +90,24 @@
     <Compile Include="CustomControls\ContentFields.Designer.cs">
       <DependentUpon>ContentFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\EditableContentFields.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\EditableContentFields.Designer.cs">
+      <DependentUpon>EditableContentFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCheatMeal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCheatMeal.Designer.cs">
+      <DependentUpon>EditCheatMeal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditWorkout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditWorkout.Designer.cs">
+      <DependentUpon>EditWorkout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\FormsControlExtensions.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DetailHelper.cs" />
@@ -102,6 +120,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\WorkoutFieldsHelper.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +132,7 @@
     <Compile Include="Models\DailyDetail.cs" />
     <Compile Include="Models\Enums\ExerciseType.cs" />
     <Compile Include="Models\Enums\MealType.cs" />
+    <Compile Include="Models\Enums\PredictedWeightStatus.cs" />
     <Compile Include="Models\Enums\PredictionState.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Prediction.cs" />
@@ -166,8 +186,17 @@
     <EmbeddedResource Include="CustomControls\ContentFields.resx">
       <DependentUpon>ContentFields.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\EditableContentFields.resx">
+      <DependentUpon>EditableContentFields.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCheatMeal.resx">
+      <DependentUpon>EditCheatMeal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditWorkout.resx">
+      <DependentUpon>EditWorkout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -258,6 +287,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\running.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dumbbell_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\running_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

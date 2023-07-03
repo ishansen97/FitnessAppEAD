@@ -31,5 +31,30 @@ namespace FitnessApp.Helpers
 
       return Color.Black;
     }
+
+    public static Color GetPredictedWeightTextColor(PredictedWeightStatus weightStatus)
+    {
+      Color txtColor = Color.Black;
+      switch (weightStatus)
+      {
+        case PredictedWeightStatus.Underweight:
+          txtColor = Color.LightBlue;
+          break;
+        case PredictedWeightStatus.Normal:
+          txtColor = Color.Green;
+          break;
+        case PredictedWeightStatus.Overweight:
+          txtColor = Color.Yellow;
+          break;
+        case PredictedWeightStatus.Obese:
+          txtColor = Color.Orange;
+          break;
+        case PredictedWeightStatus.ExtremelyObese:
+          txtColor = Color.Red;
+          break;
+      }
+
+      return txtColor;
+    }
   }
 }

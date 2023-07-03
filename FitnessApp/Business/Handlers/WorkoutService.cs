@@ -34,5 +34,10 @@ namespace FitnessApp.Business.Handlers
       {
         return WorkoutContext.GetWeeklyWorkouts(startDate, endDate);
       }
+
+      public void EditWorkout(int workoutId, Workout newWorkout)
+      {
+        WorkoutContext.EditWorkout(workoutId, newWorkout);
+      }
     }
 }

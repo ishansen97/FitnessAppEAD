@@ -34,5 +34,10 @@ namespace FitnessApp.Business.Handlers
     {
       return CheatMealContext.GetWeeklyCheatMeals(startDate, endDate);
     }
+
+    public void EditCheatMeal(int cheatMealId, CheatMeal newCheatMeal)
+    {
+      CheatMealContext.EditCheatMeal(cheatMealId, newCheatMeal);
+    }
   }
 }

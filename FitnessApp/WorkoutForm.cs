@@ -27,7 +27,7 @@ namespace FitnessApp
       InitializeComponent();
       LoadWorkoutTypes();
       _workoutService = new WorkoutService();
-      dtWorkoutPicker.MaxDate = DateTime.Now;
+      dtWorkoutPicker.MaxDate = DateTime.Today;
     }
 
     private void LoadWorkoutTypes()

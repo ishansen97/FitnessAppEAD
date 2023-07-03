@@ -100,5 +100,13 @@ namespace FitnessApp.Context
 
         return false;
       }
+
+      public static void UpdateUser(User user)
+      {
+        if (_userProfiles.ContainsKey(CurrentProfile.UserName))
+        {
+
+        }
+      }
     }
 }

@@ -73,7 +73,7 @@ namespace FitnessApp.CustomControls
       this.Controls.Add(this.lblExerciseType);
       this.Controls.Add(this.lblExerciseTypeLabel);
       this.Name = "DailyWorkoutSummary";
-      this.Size = new System.Drawing.Size(618, 215);
+      this.Size = new System.Drawing.Size(485, 215);
       this.ResumeLayout(false);
       this.PerformLayout();
 

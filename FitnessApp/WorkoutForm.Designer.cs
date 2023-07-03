@@ -31,14 +31,14 @@ namespace FitnessApp
     {
       this.components = new System.ComponentModel.Container();
       this.pnlWorkout = new System.Windows.Forms.Panel();
-      this.lblWorkoutHead = new System.Windows.Forms.Label();
-      this.lblWorkoutType = new System.Windows.Forms.Label();
-      this.cmbWorkoutTypes = new System.Windows.Forms.ComboBox();
-      this.btnAddWorkout = new System.Windows.Forms.Button();
       this.pnlWorkoutControls = new System.Windows.Forms.Panel();
-      this.lblWorkoutDate = new System.Windows.Forms.Label();
-      this.dtWorkoutPicker = new System.Windows.Forms.DateTimePicker();
+      this.btnAddWorkout = new System.Windows.Forms.Button();
+      this.cmbWorkoutTypes = new System.Windows.Forms.ComboBox();
+      this.lblWorkoutType = new System.Windows.Forms.Label();
+      this.lblWorkoutHead = new System.Windows.Forms.Label();
       this.pnlWorkoutDate = new System.Windows.Forms.Panel();
+      this.dtWorkoutPicker = new System.Windows.Forms.DateTimePicker();
+      this.lblWorkoutDate = new System.Windows.Forms.Label();
       this.WorkoutErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
       this.pnlWorkout.SuspendLayout();
       this.pnlWorkoutDate.SuspendLayout();
@@ -59,37 +59,14 @@ namespace FitnessApp
       this.pnlWorkout.Size = new System.Drawing.Size(728, 511);
       this.pnlWorkout.TabIndex = 0;
       // 
-      // lblWorkoutHead
+      // pnlWorkoutControls
       // 
-      this.lblWorkoutHead.AutoSize = true;
-      this.lblWorkoutHead.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblWorkoutHead.Location = new System.Drawing.Point(231, 27);
-      this.lblWorkoutHead.Name = "lblWorkoutHead";
-      this.lblWorkoutHead.Size = new System.Drawing.Size(210, 39);
-      this.lblWorkoutHead.TabIndex = 0;
-      this.lblWorkoutHead.Text = "Add Workout";
-      // 
-      // lblWorkoutType
-      // 
-      this.lblWorkoutType.AutoSize = true;
-      this.lblWorkoutType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblWorkoutType.ForeColor = System.Drawing.Color.Blue;
-      this.lblWorkoutType.Location = new System.Drawing.Point(29, 123);
-      this.lblWorkoutType.Name = "lblWorkoutType";
-      this.lblWorkoutType.Size = new System.Drawing.Size(133, 23);
-      this.lblWorkoutType.TabIndex = 1;
-      this.lblWorkoutType.Text = "Workout Type";
-      // 
-      // cmbWorkoutTypes
-      // 
-      this.cmbWorkoutTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.cmbWorkoutTypes.FormattingEnabled = true;
-      this.cmbWorkoutTypes.Location = new System.Drawing.Point(267, 122);
-      this.cmbWorkoutTypes.Name = "cmbWorkoutTypes";
-      this.cmbWorkoutTypes.Size = new System.Drawing.Size(136, 33);
-      this.cmbWorkoutTypes.TabIndex = 2;
-      this.cmbWorkoutTypes.SelectedIndexChanged += new System.EventHandler(this.OnSelectedWorkoutType_Changed);
-      this.cmbWorkoutTypes.Validating += new System.ComponentModel.CancelEventHandler(this.WorkoutTypes_Validated);
+      this.pnlWorkoutControls.AutoSize = true;
+      this.pnlWorkoutControls.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkoutControls.Location = new System.Drawing.Point(3, 182);
+      this.pnlWorkoutControls.Name = "pnlWorkoutControls";
+      this.pnlWorkoutControls.Size = new System.Drawing.Size(455, 127);
+      this.pnlWorkoutControls.TabIndex = 4;
       // 
       // btnAddWorkout
       // 
@@ -102,14 +79,57 @@ namespace FitnessApp
       this.btnAddWorkout.UseVisualStyleBackColor = true;
       this.btnAddWorkout.Click += new System.EventHandler(this.btnAddWorkout_Click);
       // 
-      // pnlWorkoutControls
+      // cmbWorkoutTypes
       // 
-      this.pnlWorkoutControls.AutoSize = true;
-      this.pnlWorkoutControls.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.pnlWorkoutControls.Location = new System.Drawing.Point(3, 182);
-      this.pnlWorkoutControls.Name = "pnlWorkoutControls";
-      this.pnlWorkoutControls.Size = new System.Drawing.Size(455, 127);
-      this.pnlWorkoutControls.TabIndex = 4;
+      this.cmbWorkoutTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.cmbWorkoutTypes.FormattingEnabled = true;
+      this.cmbWorkoutTypes.Location = new System.Drawing.Point(267, 122);
+      this.cmbWorkoutTypes.Name = "cmbWorkoutTypes";
+      this.cmbWorkoutTypes.Size = new System.Drawing.Size(136, 33);
+      this.cmbWorkoutTypes.TabIndex = 2;
+      this.cmbWorkoutTypes.SelectedIndexChanged += new System.EventHandler(this.OnSelectedWorkoutType_Changed);
+      this.cmbWorkoutTypes.Validating += new System.ComponentModel.CancelEventHandler(this.WorkoutTypes_Validated);
+      // 
+      // lblWorkoutType
+      // 
+      this.lblWorkoutType.AutoSize = true;
+      this.lblWorkoutType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblWorkoutType.ForeColor = System.Drawing.Color.Blue;
+      this.lblWorkoutType.Location = new System.Drawing.Point(29, 123);
+      this.lblWorkoutType.Name = "lblWorkoutType";
+      this.lblWorkoutType.Size = new System.Drawing.Size(133, 23);
+      this.lblWorkoutType.TabIndex = 1;
+      this.lblWorkoutType.Text = "Workout Type";
+      // 
+      // lblWorkoutHead
+      // 
+      this.lblWorkoutHead.AutoSize = true;
+      this.lblWorkoutHead.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblWorkoutHead.Location = new System.Drawing.Point(231, 27);
+      this.lblWorkoutHead.Name = "lblWorkoutHead";
+      this.lblWorkoutHead.Size = new System.Drawing.Size(205, 38);
+      this.lblWorkoutHead.TabIndex = 0;
+      this.lblWorkoutHead.Text = "Add Workout";
+      // 
+      // pnlWorkoutDate
+      // 
+      this.pnlWorkoutDate.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkoutDate.Controls.Add(this.dtWorkoutPicker);
+      this.pnlWorkoutDate.Controls.Add(this.lblWorkoutDate);
+      this.pnlWorkoutDate.Location = new System.Drawing.Point(3, 315);
+      this.pnlWorkoutDate.Name = "pnlWorkoutDate";
+      this.pnlWorkoutDate.Size = new System.Drawing.Size(463, 36);
+      this.pnlWorkoutDate.TabIndex = 7;
+      this.pnlWorkoutDate.Visible = false;
+      // 
+      // dtWorkoutPicker
+      // 
+      this.dtWorkoutPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+      this.dtWorkoutPicker.Location = new System.Drawing.Point(260, 5);
+      this.dtWorkoutPicker.Name = "dtWorkoutPicker";
+      this.dtWorkoutPicker.Size = new System.Drawing.Size(200, 22);
+      this.dtWorkoutPicker.TabIndex = 6;
+      this.dtWorkoutPicker.Value = new System.DateTime(2023, 7, 3, 0, 0, 0, 0);
       // 
       // lblWorkoutDate
       // 
@@ -121,27 +141,6 @@ namespace FitnessApp
       this.lblWorkoutDate.Size = new System.Drawing.Size(52, 23);
       this.lblWorkoutDate.TabIndex = 5;
       this.lblWorkoutDate.Text = "Date";
-      // 
-      // dtWorkoutPicker
-      // 
-      this.dtWorkoutPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-      this.dtWorkoutPicker.Location = new System.Drawing.Point(260, 5);
-      this.dtWorkoutPicker.MaxDate = new System.DateTime(2023, 6, 28, 0, 0, 0, 0);
-      this.dtWorkoutPicker.Name = "dtWorkoutPicker";
-      this.dtWorkoutPicker.Size = new System.Drawing.Size(200, 22);
-      this.dtWorkoutPicker.TabIndex = 6;
-      this.dtWorkoutPicker.Value = new System.DateTime(2023, 6, 28, 0, 0, 0, 0);
-      // 
-      // pnlWorkoutDate
-      // 
-      this.pnlWorkoutDate.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.pnlWorkoutDate.Controls.Add(this.dtWorkoutPicker);
-      this.pnlWorkoutDate.Controls.Add(this.lblWorkoutDate);
-      this.pnlWorkoutDate.Location = new System.Drawing.Point(3, 315);
-      this.pnlWorkoutDate.Name = "pnlWorkoutDate";
-      this.pnlWorkoutDate.Size = new System.Drawing.Size(463, 36);
-      this.pnlWorkoutDate.TabIndex = 7;
-      this.pnlWorkoutDate.Visible = false;
       // 
       // WorkoutErrorHandler
       // 

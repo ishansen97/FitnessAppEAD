@@ -39,7 +39,7 @@ namespace FitnessApp.CustomControls
       foreach (var field in _workout.Fields)
       {
         var formattedValue = detailHelper.GetFieldValueForText(field.Key, field.Value);
-        var fieldPanel = new ContentFields(field.Key, formattedValue);
+        var fieldPanel = new ContentFields(field.Key, formattedValue, lblExerciseType.ForeColor);
         if (index == 0)
         {
           panelHeight = 0;

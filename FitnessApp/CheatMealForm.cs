@@ -22,7 +22,7 @@ namespace FitnessApp
     {
       InitializeComponent();
       _cheatMealService = new CheatMealService();
-      dtCheatMealPicker.MaxDate = DateTime.Now;
+      dtCheatMealPicker.MaxDate = DateTime.Today;
       cmbCheatMealTypes.Items.AddRange(EnumHelper.LoadItems<MealType>());
     }
 

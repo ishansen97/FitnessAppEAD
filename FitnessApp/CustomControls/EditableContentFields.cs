@@ -10,33 +10,41 @@ using System.Windows.Forms;
 
 namespace FitnessApp.CustomControls
 {
-  public partial class ContentFields : UserControl
+  public partial class EditableContentFields : UserControl
   {
     private string _key;
     private string _value;
-    private Color _txtColor;
 
-    public ContentFields()
+    public EditableContentFields()
     {
       InitializeComponent();
     }
 
-    public ContentFields(string key, string value, Color txtColor)
+    public EditableContentFields(string key, string value)
     {
       InitializeComponent();
       _key = key;
       _value = value;
-      _txtColor = txtColor;
       LoadControl();
+      Name = key;
     }
 
     private void LoadControl()
     {
       lblField.Text = _key;
-      lblField.ForeColor = _txtColor;
+      var splitted = _value.Split(' ');
+      if (splitted.Length == 2)
+      {
+        txtValue.Text = splitted[0];
+        lblUnit.Text = splitted[1];
+      }
+      else
+      {
+        txtValue.Text = _value;
+        lblUnit.Text = string.Empty;
+      }
 
-      lblValue.Text = _value;
-      lblValue.ForeColor = _txtColor;
+      txtValue.Name = _key;
     }
   }
 }

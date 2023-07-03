@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FitnessApp.Business.Handlers;
 using FitnessApp.Helpers;
+using FitnessApp.Models;
 
 namespace FitnessApp.CustomControls
 {
@@ -118,8 +119,17 @@ namespace FitnessApp.CustomControls
 
     private void EditButtonOnClick(object sender, EventArgs e)
     {
-      Button editButton = sender as Button;
-      MessageBox.Show($"{editButton.Name}, {_isWorkout}, {_detailHelper.Detail.Id}");
+      Form newEditForm;
+      if (_isWorkout)
+      {
+        newEditForm = new EditWorkout((Workout)_detailHelper.Detail);
+      }
+      else
+      {
+        newEditForm = new EditCheatMeal((CheatMeal)_detailHelper.Detail);
+      }
+      newEditForm.Activate();
+      newEditForm.ShowDialog();
     }
 
     private void DeleteButtonOnClick(object sender, EventArgs e)

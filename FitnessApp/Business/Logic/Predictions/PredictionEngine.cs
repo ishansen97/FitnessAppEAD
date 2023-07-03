@@ -34,6 +34,7 @@ namespace FitnessApp.Business.Logic.Predictions
       };
 
       prediction.PredictedBMI = GetPredictedBMI(prediction.PredictedWeight);
+      prediction.WeightStatus = GetPredictedWeightStatus(prediction.PredictedBMI);
 
       return prediction;
     }
@@ -77,6 +78,32 @@ namespace FitnessApp.Business.Logic.Predictions
       }
 
       return message;
+    }
+
+    private static PredictedWeightStatus GetPredictedWeightStatus(double predictedBMI)
+    {
+      if (predictedBMI < 18.5)
+      {
+        return PredictedWeightStatus.Underweight;
+      }
+      if (predictedBMI >= 18.5 && predictedBMI <= 24.9)
+      {
+        return PredictedWeightStatus.Normal;
+      }
+      if (predictedBMI >= 25 && predictedBMI <= 25.9)
+      {
+        return PredictedWeightStatus.Overweight;
+      }
+      if (predictedBMI >= 30 && predictedBMI <= 34.9)
+      {
+        return PredictedWeightStatus.Obese;
+      }
+      if (predictedBMI >= 35)
+      {
+        return PredictedWeightStatus.ExtremelyObese;
+      }
+
+      return PredictedWeightStatus.None;
     }
   }
 }

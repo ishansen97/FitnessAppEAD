@@ -20,6 +20,7 @@ namespace FitnessApp
   public partial class Dashboard : Form
   {
     private bool _isProfileLoaded;
+    private UserProfile _userProfile;
     private WorkoutService _workoutService;
     private CheatMealService _cheatMealService;
     private PredictionService _predictionService;
@@ -62,15 +63,18 @@ namespace FitnessApp
       {
         if (!_isProfileLoaded)
         {
-          var profile = UserContext.CurrentProfile;
-          var user = profile.User;
+          _userProfile = UserContext.CurrentProfile;
+          var user = _userProfile.User;
           txtFirstName.Text = user.FirstName;
           txtLastName.Text = user.LastName;
-          txtUserName.Text = profile.UserName;
+          txtUserName.Text = _userProfile.UserName;
           txtAge.Text = user.Age.ToString(CultureInfo.InvariantCulture);
           txtHeight.Text = user.Height.ToString(CultureInfo.InvariantCulture);
           txtWeight.Text = user.Weight.ToString(CultureInfo.InvariantCulture);
           _isProfileLoaded = true;
+
+          // username is read-only (application specific)
+          txtUserName.ReadOnly = true;
         }
       }
       else if (e.TabPage == WeeklyView)
@@ -133,6 +137,20 @@ namespace FitnessApp
         // display prediction message.
         lblPredictionMessageValue.Text = prediction.Message;
         lblPredictionMessageValue.ForeColor = EnumHelper.GetTextColorForPredictionStatus(prediction.State);
+
+        // display predicted weight status
+        lblPredictedWeightStatus.Text = prediction.WeightStatus.ToString();
+        lblPredictedWeightStatus.ForeColor = EnumHelper.GetPredictedWeightTextColor(prediction.WeightStatus);
+
+        pnlPredictionDetails.Visible = true;
+        lblPredictionViewLabel.Visible = false;
+      }
+      else
+      {
+        lblPredictionViewLabel.Text = "Please add atleast 3 workouts/cheat meals";
+        lblPredictionViewLabel.ForeColor = Color.Red;
+        lblPredictionViewLabel.Visible = true;
+        pnlPredictionDetails.Visible = false;
       }
     }
 
@@ -206,6 +224,94 @@ namespace FitnessApp
         dailyPanel.Location = new Point(0, panelHeight);
         pnlDailyPanelLists.Controls.Add(dailyPanel);
         index++;
+      }
+    }
+
+    // for editing the profile.
+    private void btnSave_Click(object sender, EventArgs e)
+    {
+      if (ValidateChildren(ValidationConstraints.Enabled))
+      {
+        _userProfile.User.FirstName = txtFirstName.Text;
+        _userProfile.User.LastName = txtLastName.Text;
+        _userProfile.User.Age = int.Parse(txtAge.Text);
+        _userProfile.User.Height = int.Parse(txtHeight.Text); 
+        _userProfile.User.Weight = double.Parse(txtWeight.Text);
+        
+        // TODO: add the service part for user in CW2.
+        MessageBox.Show("User updated successfully.", "Success!");
+      }
+    }
+
+    private void txtField_Validating(object sender, CancelEventArgs e)
+    {
+      TextBox txtBox = sender as TextBox;
+      if (string.IsNullOrWhiteSpace(txtBox.Text))
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must not be empty.");
+      }
+      else
+      {
+        e.Cancel = false;
+        ProfileErrorHandler.SetError(txtBox, string.Empty);
+      }
+    }
+
+    private void numberField_Validating(object sender, CancelEventArgs e)
+    {
+      TextBox txtBox = sender as TextBox;
+      if (string.IsNullOrWhiteSpace(txtBox.Text))
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must not be empty.");
+      }
+      else if (!int.TryParse(txtBox.Text, out var value))
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must be a number.");
+      }
+      else if (value < 0)
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must be a positive number.");
+      }
+      else
+      {
+        e.Cancel = false;
+        ProfileErrorHandler.SetError(txtBox, string.Empty);
+      }
+    }
+
+    private void doubleField_Validating(object sender, CancelEventArgs e)
+    {
+      TextBox txtBox = sender as TextBox;
+      if (string.IsNullOrWhiteSpace(txtBox.Text))
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must not be empty.");
+      }
+      else if (!double.TryParse(txtBox.Text, out var value))
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must be a number.");
+      }
+      else if (value < 0)
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        ProfileErrorHandler.SetError(txtBox, "Value must be a positive number.");
+      }
+      else
+      {
+        e.Cancel = false;
+        ProfileErrorHandler.SetError(txtBox, string.Empty);
       }
     }
   }

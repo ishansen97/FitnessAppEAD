@@ -23,6 +23,8 @@ namespace FitnessApp.Models
 
       public double PredictedBMI { get; set; }
 
+      public PredictedWeightStatus WeightStatus { get; set; }
+
       public string Message { get; set; }
     }
 }

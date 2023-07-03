@@ -1,7 +1,7 @@
 ﻿
 namespace FitnessApp.CustomControls
 {
-  partial class ContentFields
+  partial class EditableContentFields
   {
     /// <summary> 
     /// Required designer variable.
@@ -30,7 +30,8 @@ namespace FitnessApp.CustomControls
     private void InitializeComponent()
     {
       this.lblField = new System.Windows.Forms.Label();
-      this.lblValue = new System.Windows.Forms.Label();
+      this.txtValue = new System.Windows.Forms.TextBox();
+      this.lblUnit = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // lblField
@@ -39,42 +40,49 @@ namespace FitnessApp.CustomControls
       this.lblField.BackColor = System.Drawing.SystemColors.Control;
       this.lblField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblField.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-      this.lblField.Location = new System.Drawing.Point(3, 0);
+      this.lblField.Location = new System.Drawing.Point(3, 9);
       this.lblField.Name = "lblField";
       this.lblField.Size = new System.Drawing.Size(70, 25);
-      this.lblField.TabIndex = 0;
+      this.lblField.TabIndex = 2;
       this.lblField.Text = "label1";
       // 
-      // lblValue
+      // txtValue
       // 
-      this.lblValue.AutoSize = true;
-      this.lblValue.BackColor = System.Drawing.SystemColors.Control;
-      this.lblValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblValue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-      this.lblValue.Location = new System.Drawing.Point(323, 0);
-      this.lblValue.Name = "lblValue";
-      this.lblValue.Size = new System.Drawing.Size(68, 25);
-      this.lblValue.TabIndex = 1;
-      this.lblValue.Text = "Value";
+      this.txtValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.txtValue.Location = new System.Drawing.Point(269, 9);
+      this.txtValue.Name = "txtValue";
+      this.txtValue.Size = new System.Drawing.Size(140, 30);
+      this.txtValue.TabIndex = 3;
       // 
-      // ContentFields
+      // lblUnit
+      // 
+      this.lblUnit.AutoSize = true;
+      this.lblUnit.BackColor = System.Drawing.SystemColors.Control;
+      this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.lblUnit.Location = new System.Drawing.Point(431, 12);
+      this.lblUnit.Name = "lblUnit";
+      this.lblUnit.Size = new System.Drawing.Size(35, 25);
+      this.lblUnit.TabIndex = 4;
+      this.lblUnit.Text = "kg";
+      // 
+      // EditableContentFields
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.AutoSize = true;
-      this.BackColor = System.Drawing.SystemColors.Control;
-      this.Controls.Add(this.lblValue);
+      this.Controls.Add(this.lblUnit);
+      this.Controls.Add(this.txtValue);
       this.Controls.Add(this.lblField);
-      this.Name = "ContentFields";
-      this.Size = new System.Drawing.Size(453, 40);
+      this.Name = "EditableContentFields";
+      this.Size = new System.Drawing.Size(483, 51);
       this.ResumeLayout(false);
       this.PerformLayout();
 
     }
 
     #endregion
-
     private System.Windows.Forms.Label lblField;
-    private System.Windows.Forms.Label lblValue;
+    private System.Windows.Forms.TextBox txtValue;
+    private System.Windows.Forms.Label lblUnit;
   }
 }

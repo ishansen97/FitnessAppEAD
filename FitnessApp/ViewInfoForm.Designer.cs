@@ -44,7 +44,7 @@ namespace FitnessApp
       // pnlMain
       // 
       this.pnlMain.AutoScroll = true;
-      this.pnlMain.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.pnlMain.BackColor = System.Drawing.SystemColors.ButtonHighlight;
       this.pnlMain.Controls.Add(this.lblNoContentMessage);
       this.pnlMain.Controls.Add(this.pnlSelections);
       this.pnlMain.Location = new System.Drawing.Point(80, 99);
@@ -56,10 +56,11 @@ namespace FitnessApp
       // 
       this.lblNoContentMessage.AutoSize = true;
       this.lblNoContentMessage.BackColor = System.Drawing.SystemColors.Control;
-      this.lblNoContentMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblNoContentMessage.Location = new System.Drawing.Point(177, 122);
+      this.lblNoContentMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblNoContentMessage.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+      this.lblNoContentMessage.Location = new System.Drawing.Point(277, 120);
       this.lblNoContentMessage.Name = "lblNoContentMessage";
-      this.lblNoContentMessage.Size = new System.Drawing.Size(418, 55);
+      this.lblNoContentMessage.Size = new System.Drawing.Size(172, 25);
       this.lblNoContentMessage.TabIndex = 1;
       this.lblNoContentMessage.Text = "No Content Found";
       this.lblNoContentMessage.Visible = false;
