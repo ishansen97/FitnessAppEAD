@@ -29,6 +29,7 @@ namespace FitnessApp.Business.Logic.Predictions
         State = (calorieDifference > 0) ? PredictionState.Good : PredictionState.Bad,
         Message = GetPredictionMessage(calorieDifference > 0),
         PredictedDate = predictedDateTime,
+        CurrentWeight = UserContext.CurrentProfile.User.Weight,
         PredictedWeight = GetPredictedWeight(totalCalorieExpenditure),
         BMI = GetBMI()
       };
@@ -90,7 +91,7 @@ namespace FitnessApp.Business.Logic.Predictions
       {
         return PredictedWeightStatus.Normal;
       }
-      if (predictedBMI >= 25 && predictedBMI <= 25.9)
+      if (predictedBMI >= 25 && predictedBMI <= 29.9)
       {
         return PredictedWeightStatus.Overweight;
       }

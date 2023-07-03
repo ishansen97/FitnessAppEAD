@@ -81,6 +81,7 @@ namespace FitnessApp
       {
         lblWeek.Text = DateHelper.CreateWeekText(DateTime.Today);
         lblWeek.Tag = DateTime.Today;
+        LoadWeeklyDetails(DateTime.Today);
       }
     }
 
@@ -126,6 +127,9 @@ namespace FitnessApp
         lblPredictionViewLabel.ForeColor = Color.Blue;
         lblPredictionViewLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, 
                                             System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+        // display current weight
+        lblCurrentWeightValue.Text = prediction.CurrentWeight.ToString(CultureInfo.InvariantCulture);
 
         // display predicted weight
         lblPredictedWeightValue.Text = $"{prediction.PredictedWeight.ToString(CultureInfo.InvariantCulture)} kg";

@@ -294,5 +294,11 @@
   <ItemGroup>
     <None Include="Resources\running_32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburger_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

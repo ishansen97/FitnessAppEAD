@@ -34,6 +34,7 @@ namespace FitnessApp
       this.PredictionsTab = new System.Windows.Forms.TabPage();
       this.pnlPredictionMain = new System.Windows.Forms.Panel();
       this.pnlPredictionView = new System.Windows.Forms.Panel();
+      this.pnlPredictionDetails = new System.Windows.Forms.Panel();
       this.lblPredictionMessageValue = new System.Windows.Forms.Label();
       this.lblPredictionMessage = new System.Windows.Forms.Label();
       this.lblPredictedWeightStatus = new System.Windows.Forms.Label();
@@ -81,11 +82,13 @@ namespace FitnessApp
       this.lblWeek = new System.Windows.Forms.Label();
       this.pbCalendarIcon = new System.Windows.Forms.PictureBox();
       this.lblWeeklyViewHeader = new System.Windows.Forms.Label();
-      this.pnlPredictionDetails = new System.Windows.Forms.Panel();
       this.ProfileErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
+      this.lblCurrentWeightValue = new System.Windows.Forms.Label();
+      this.lblCurrentWeight = new System.Windows.Forms.Label();
       this.PredictionsTab.SuspendLayout();
       this.pnlPredictionMain.SuspendLayout();
       this.pnlPredictionView.SuspendLayout();
+      this.pnlPredictionDetails.SuspendLayout();
       this.ProfileTab.SuspendLayout();
       this.HomeTab.SuspendLayout();
       this.pnlCheatMeals.SuspendLayout();
@@ -97,7 +100,6 @@ namespace FitnessApp
       ((System.ComponentModel.ISupportInitialize)(this.pbLeftArrow)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbCalendarIcon)).BeginInit();
-      this.pnlPredictionDetails.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ProfileErrorHandler)).BeginInit();
       this.SuspendLayout();
       // 
@@ -144,11 +146,28 @@ namespace FitnessApp
       this.pnlPredictionView.Size = new System.Drawing.Size(713, 368);
       this.pnlPredictionView.TabIndex = 3;
       // 
+      // pnlPredictionDetails
+      // 
+      this.pnlPredictionDetails.Controls.Add(this.lblCurrentWeightValue);
+      this.pnlPredictionDetails.Controls.Add(this.lblCurrentWeight);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictionMessageValue);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictionMessage);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictedWeightStatus);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictedWeightValue);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictedWeight);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictedStatusValue);
+      this.pnlPredictionDetails.Controls.Add(this.lblPredictedStatus);
+      this.pnlPredictionDetails.Location = new System.Drawing.Point(8, 45);
+      this.pnlPredictionDetails.Name = "pnlPredictionDetails";
+      this.pnlPredictionDetails.Size = new System.Drawing.Size(694, 322);
+      this.pnlPredictionDetails.TabIndex = 8;
+      this.pnlPredictionDetails.Visible = false;
+      // 
       // lblPredictionMessageValue
       // 
       this.lblPredictionMessageValue.AutoSize = true;
       this.lblPredictionMessageValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblPredictionMessageValue.Location = new System.Drawing.Point(287, 149);
+      this.lblPredictionMessageValue.Location = new System.Drawing.Point(289, 192);
       this.lblPredictionMessageValue.Name = "lblPredictionMessageValue";
       this.lblPredictionMessageValue.Size = new System.Drawing.Size(74, 25);
       this.lblPredictionMessageValue.TabIndex = 7;
@@ -159,7 +178,7 @@ namespace FitnessApp
       this.lblPredictionMessage.AutoSize = true;
       this.lblPredictionMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPredictionMessage.ForeColor = System.Drawing.SystemColors.HotTrack;
-      this.lblPredictionMessage.Location = new System.Drawing.Point(16, 149);
+      this.lblPredictionMessage.Location = new System.Drawing.Point(18, 192);
       this.lblPredictionMessage.Name = "lblPredictionMessage";
       this.lblPredictionMessage.Size = new System.Drawing.Size(100, 25);
       this.lblPredictionMessage.TabIndex = 6;
@@ -169,7 +188,7 @@ namespace FitnessApp
       // 
       this.lblPredictedWeightStatus.AutoSize = true;
       this.lblPredictedWeightStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblPredictedWeightStatus.Location = new System.Drawing.Point(411, 22);
+      this.lblPredictedWeightStatus.Location = new System.Drawing.Point(413, 65);
       this.lblPredictedWeightStatus.Name = "lblPredictedWeightStatus";
       this.lblPredictedWeightStatus.Size = new System.Drawing.Size(74, 25);
       this.lblPredictedWeightStatus.TabIndex = 5;
@@ -179,7 +198,7 @@ namespace FitnessApp
       // 
       this.lblPredictedWeightValue.AutoSize = true;
       this.lblPredictedWeightValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblPredictedWeightValue.Location = new System.Drawing.Point(287, 22);
+      this.lblPredictedWeightValue.Location = new System.Drawing.Point(289, 65);
       this.lblPredictedWeightValue.Name = "lblPredictedWeightValue";
       this.lblPredictedWeightValue.Size = new System.Drawing.Size(74, 25);
       this.lblPredictedWeightValue.TabIndex = 4;
@@ -190,7 +209,7 @@ namespace FitnessApp
       this.lblPredictedWeight.AutoSize = true;
       this.lblPredictedWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPredictedWeight.ForeColor = System.Drawing.SystemColors.HotTrack;
-      this.lblPredictedWeight.Location = new System.Drawing.Point(16, 22);
+      this.lblPredictedWeight.Location = new System.Drawing.Point(18, 65);
       this.lblPredictedWeight.Name = "lblPredictedWeight";
       this.lblPredictedWeight.Size = new System.Drawing.Size(246, 25);
       this.lblPredictedWeight.TabIndex = 3;
@@ -200,7 +219,7 @@ namespace FitnessApp
       // 
       this.lblPredictedStatusValue.AutoSize = true;
       this.lblPredictedStatusValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblPredictedStatusValue.Location = new System.Drawing.Point(287, 84);
+      this.lblPredictedStatusValue.Location = new System.Drawing.Point(289, 127);
       this.lblPredictedStatusValue.Name = "lblPredictedStatusValue";
       this.lblPredictedStatusValue.Size = new System.Drawing.Size(74, 25);
       this.lblPredictedStatusValue.TabIndex = 2;
@@ -211,7 +230,7 @@ namespace FitnessApp
       this.lblPredictedStatus.AutoSize = true;
       this.lblPredictedStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPredictedStatus.ForeColor = System.Drawing.SystemColors.HotTrack;
-      this.lblPredictedStatus.Location = new System.Drawing.Point(16, 84);
+      this.lblPredictedStatus.Location = new System.Drawing.Point(18, 127);
       this.lblPredictedStatus.Name = "lblPredictedStatus";
       this.lblPredictedStatus.Size = new System.Drawing.Size(74, 25);
       this.lblPredictedStatus.TabIndex = 1;
@@ -655,24 +674,30 @@ namespace FitnessApp
       this.lblWeeklyViewHeader.TabIndex = 0;
       this.lblWeeklyViewHeader.Text = "Get Your Weekly Views Here";
       // 
-      // pnlPredictionDetails
-      // 
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictionMessageValue);
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictionMessage);
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictedWeightStatus);
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictedWeightValue);
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictedWeight);
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictedStatusValue);
-      this.pnlPredictionDetails.Controls.Add(this.lblPredictedStatus);
-      this.pnlPredictionDetails.Location = new System.Drawing.Point(8, 45);
-      this.pnlPredictionDetails.Name = "pnlPredictionDetails";
-      this.pnlPredictionDetails.Size = new System.Drawing.Size(694, 322);
-      this.pnlPredictionDetails.TabIndex = 8;
-      this.pnlPredictionDetails.Visible = false;
-      // 
       // ProfileErrorHandler
       // 
       this.ProfileErrorHandler.ContainerControl = this;
+      // 
+      // lblCurrentWeightValue
+      // 
+      this.lblCurrentWeightValue.AutoSize = true;
+      this.lblCurrentWeightValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCurrentWeightValue.Location = new System.Drawing.Point(289, 10);
+      this.lblCurrentWeightValue.Name = "lblCurrentWeightValue";
+      this.lblCurrentWeightValue.Size = new System.Drawing.Size(74, 25);
+      this.lblCurrentWeightValue.TabIndex = 9;
+      this.lblCurrentWeightValue.Text = "Status";
+      // 
+      // lblCurrentWeight
+      // 
+      this.lblCurrentWeight.AutoSize = true;
+      this.lblCurrentWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCurrentWeight.ForeColor = System.Drawing.SystemColors.HotTrack;
+      this.lblCurrentWeight.Location = new System.Drawing.Point(18, 10);
+      this.lblCurrentWeight.Name = "lblCurrentWeight";
+      this.lblCurrentWeight.Size = new System.Drawing.Size(158, 25);
+      this.lblCurrentWeight.TabIndex = 8;
+      this.lblCurrentWeight.Text = "Current Weight";
       // 
       // Dashboard
       // 
@@ -688,6 +713,8 @@ namespace FitnessApp
       this.pnlPredictionMain.PerformLayout();
       this.pnlPredictionView.ResumeLayout(false);
       this.pnlPredictionView.PerformLayout();
+      this.pnlPredictionDetails.ResumeLayout(false);
+      this.pnlPredictionDetails.PerformLayout();
       this.ProfileTab.ResumeLayout(false);
       this.ProfileTab.PerformLayout();
       this.HomeTab.ResumeLayout(false);
@@ -705,8 +732,6 @@ namespace FitnessApp
       ((System.ComponentModel.ISupportInitialize)(this.pbLeftArrow)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbCalendarIcon)).EndInit();
-      this.pnlPredictionDetails.ResumeLayout(false);
-      this.pnlPredictionDetails.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ProfileErrorHandler)).EndInit();
       this.ResumeLayout(false);
 
@@ -767,5 +792,7 @@ namespace FitnessApp
     private System.Windows.Forms.Panel pnlDailyPanelLists;
     private System.Windows.Forms.Panel pnlPredictionDetails;
     private System.Windows.Forms.ErrorProvider ProfileErrorHandler;
+    private System.Windows.Forms.Label lblCurrentWeightValue;
+    private System.Windows.Forms.Label lblCurrentWeight;
   }
 }

@@ -30,8 +30,6 @@ namespace FitnessApp
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      this.pb2 = new System.Windows.Forms.PictureBox();
-      this.pb1 = new System.Windows.Forms.PictureBox();
       this.lblEditCheatMealHeader = new System.Windows.Forms.Label();
       this.pnlEditCheatMeal = new System.Windows.Forms.Panel();
       this.lblUnit = new System.Windows.Forms.Label();
@@ -44,29 +42,13 @@ namespace FitnessApp
       this.lblCheatMealTypeValue = new System.Windows.Forms.Label();
       this.lblCheatMealType = new System.Windows.Forms.Label();
       this.CheatMealErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
-      ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
+      this.pb2 = new System.Windows.Forms.PictureBox();
+      this.pb1 = new System.Windows.Forms.PictureBox();
       this.pnlEditCheatMeal.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.CheatMealErrorHandler)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
       this.SuspendLayout();
-      // 
-      // pb2
-      // 
-      this.pb2.Image = global::FitnessApp.Properties.Resources.dumbbell_32;
-      this.pb2.Location = new System.Drawing.Point(638, 92);
-      this.pb2.Name = "pb2";
-      this.pb2.Size = new System.Drawing.Size(40, 37);
-      this.pb2.TabIndex = 5;
-      this.pb2.TabStop = false;
-      // 
-      // pb1
-      // 
-      this.pb1.Image = global::FitnessApp.Properties.Resources.running_32;
-      this.pb1.Location = new System.Drawing.Point(584, 92);
-      this.pb1.Name = "pb1";
-      this.pb1.Size = new System.Drawing.Size(39, 37);
-      this.pb1.TabIndex = 4;
-      this.pb1.TabStop = false;
       // 
       // lblEditCheatMealHeader
       // 
@@ -128,6 +110,7 @@ namespace FitnessApp
       // 
       // btnEdit
       // 
+      this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(213)))), ((int)(((byte)(200)))), ((int)(((byte)(234)))));
       this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
       this.btnEdit.FlatAppearance.BorderSize = 2;
       this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -137,7 +120,7 @@ namespace FitnessApp
       this.btnEdit.Size = new System.Drawing.Size(92, 33);
       this.btnEdit.TabIndex = 5;
       this.btnEdit.Text = "Edit";
-      this.btnEdit.UseVisualStyleBackColor = true;
+      this.btnEdit.UseVisualStyleBackColor = false;
       this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
       // 
       // dtCheatMealDate
@@ -194,6 +177,24 @@ namespace FitnessApp
       // 
       this.CheatMealErrorHandler.ContainerControl = this;
       // 
+      // pb2
+      // 
+      this.pb2.Image = global::FitnessApp.Properties.Resources.hamburger_32;
+      this.pb2.Location = new System.Drawing.Point(638, 92);
+      this.pb2.Name = "pb2";
+      this.pb2.Size = new System.Drawing.Size(40, 37);
+      this.pb2.TabIndex = 5;
+      this.pb2.TabStop = false;
+      // 
+      // pb1
+      // 
+      this.pb1.Image = global::FitnessApp.Properties.Resources.pizza_32;
+      this.pb1.Location = new System.Drawing.Point(584, 92);
+      this.pb1.Name = "pb1";
+      this.pb1.Size = new System.Drawing.Size(39, 37);
+      this.pb1.TabIndex = 4;
+      this.pb1.TabStop = false;
+      // 
       // EditCheatMeal
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,12 +205,12 @@ namespace FitnessApp
       this.Controls.Add(this.pb1);
       this.Controls.Add(this.lblEditCheatMealHeader);
       this.Name = "EditCheatMeal";
-      this.Text = "EditCheatMeal";
-      ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
+      this.Text = "Edit Cheat Meal";
       this.pnlEditCheatMeal.ResumeLayout(false);
       this.pnlEditCheatMeal.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.CheatMealErrorHandler)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 

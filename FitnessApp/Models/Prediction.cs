@@ -13,6 +13,8 @@ namespace FitnessApp.Models
 
       public PredictionState State { get; set; }
 
+      public double CurrentWeight { get; set; }
+
       public double PredictedWeight { get; set; }
 
       public double BodyFatPercentage { get; set; }
