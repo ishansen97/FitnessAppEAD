@@ -35,6 +35,8 @@ namespace FitnessApp
       this.pnlPredictionMain = new System.Windows.Forms.Panel();
       this.pnlPredictionView = new System.Windows.Forms.Panel();
       this.pnlPredictionDetails = new System.Windows.Forms.Panel();
+      this.lblCurrentWeightValue = new System.Windows.Forms.Label();
+      this.lblCurrentWeight = new System.Windows.Forms.Label();
       this.lblPredictionMessageValue = new System.Windows.Forms.Label();
       this.lblPredictionMessage = new System.Windows.Forms.Label();
       this.lblPredictedWeightStatus = new System.Windows.Forms.Label();
@@ -77,14 +79,15 @@ namespace FitnessApp
       this.pnlDailyPanelLists = new System.Windows.Forms.Panel();
       this.lblWeeklyContentHeader = new System.Windows.Forms.Label();
       this.pnlMonthWeek = new System.Windows.Forms.Panel();
-      this.pbLeftArrow = new System.Windows.Forms.PictureBox();
-      this.pbRightArrow = new System.Windows.Forms.PictureBox();
       this.lblWeek = new System.Windows.Forms.Label();
-      this.pbCalendarIcon = new System.Windows.Forms.PictureBox();
       this.lblWeeklyViewHeader = new System.Windows.Forms.Label();
       this.ProfileErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
-      this.lblCurrentWeightValue = new System.Windows.Forms.Label();
-      this.lblCurrentWeight = new System.Windows.Forms.Label();
+      this.grdTest = new System.Windows.Forms.DataGridView();
+      this.pbPredictions = new System.Windows.Forms.PictureBox();
+      this.pbLeftArrow = new System.Windows.Forms.PictureBox();
+      this.pbRightArrow = new System.Windows.Forms.PictureBox();
+      this.pbCalendarIcon = new System.Windows.Forms.PictureBox();
+      this.ReportsTab.SuspendLayout();
       this.PredictionsTab.SuspendLayout();
       this.pnlPredictionMain.SuspendLayout();
       this.pnlPredictionView.SuspendLayout();
@@ -97,31 +100,37 @@ namespace FitnessApp
       this.WeeklyView.SuspendLayout();
       this.pnlWeeklyContent.SuspendLayout();
       this.pnlMonthWeek.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.ProfileErrorHandler)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.grdTest)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbPredictions)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbLeftArrow)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbCalendarIcon)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.ProfileErrorHandler)).BeginInit();
       this.SuspendLayout();
       // 
       // ReportsTab
       // 
       this.ReportsTab.BackColor = System.Drawing.Color.White;
-      this.ReportsTab.Location = new System.Drawing.Point(4, 32);
+      this.ReportsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.ReportsTab.Controls.Add(this.grdTest);
+      this.ReportsTab.Location = new System.Drawing.Point(4, 31);
       this.ReportsTab.Name = "ReportsTab";
       this.ReportsTab.Padding = new System.Windows.Forms.Padding(3);
-      this.ReportsTab.Size = new System.Drawing.Size(892, 544);
+      this.ReportsTab.Size = new System.Drawing.Size(892, 545);
       this.ReportsTab.TabIndex = 3;
       this.ReportsTab.Text = "Reports";
       // 
       // PredictionsTab
       // 
-      this.PredictionsTab.BackColor = System.Drawing.Color.White;
+      this.PredictionsTab.BackColor = System.Drawing.SystemColors.Window;
+      this.PredictionsTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.PredictionsTab.Controls.Add(this.pbPredictions);
       this.PredictionsTab.Controls.Add(this.pnlPredictionMain);
       this.PredictionsTab.Controls.Add(this.lblPredictionHeader);
-      this.PredictionsTab.Location = new System.Drawing.Point(4, 32);
+      this.PredictionsTab.Location = new System.Drawing.Point(4, 31);
       this.PredictionsTab.Name = "PredictionsTab";
       this.PredictionsTab.Padding = new System.Windows.Forms.Padding(3);
-      this.PredictionsTab.Size = new System.Drawing.Size(892, 544);
+      this.PredictionsTab.Size = new System.Drawing.Size(892, 545);
       this.PredictionsTab.TabIndex = 2;
       this.PredictionsTab.Text = "Predictions";
       // 
@@ -162,6 +171,27 @@ namespace FitnessApp
       this.pnlPredictionDetails.Size = new System.Drawing.Size(694, 322);
       this.pnlPredictionDetails.TabIndex = 8;
       this.pnlPredictionDetails.Visible = false;
+      // 
+      // lblCurrentWeightValue
+      // 
+      this.lblCurrentWeightValue.AutoSize = true;
+      this.lblCurrentWeightValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCurrentWeightValue.Location = new System.Drawing.Point(289, 10);
+      this.lblCurrentWeightValue.Name = "lblCurrentWeightValue";
+      this.lblCurrentWeightValue.Size = new System.Drawing.Size(74, 25);
+      this.lblCurrentWeightValue.TabIndex = 9;
+      this.lblCurrentWeightValue.Text = "Status";
+      // 
+      // lblCurrentWeight
+      // 
+      this.lblCurrentWeight.AutoSize = true;
+      this.lblCurrentWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCurrentWeight.ForeColor = System.Drawing.SystemColors.HotTrack;
+      this.lblCurrentWeight.Location = new System.Drawing.Point(18, 10);
+      this.lblCurrentWeight.Name = "lblCurrentWeight";
+      this.lblCurrentWeight.Size = new System.Drawing.Size(158, 25);
+      this.lblCurrentWeight.TabIndex = 8;
+      this.lblCurrentWeight.Text = "Current Weight";
       // 
       // lblPredictionMessageValue
       // 
@@ -289,6 +319,7 @@ namespace FitnessApp
       // ProfileTab
       // 
       this.ProfileTab.BackColor = System.Drawing.Color.LightGray;
+      this.ProfileTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.ProfileTab.Controls.Add(this.txtUserName);
       this.ProfileTab.Controls.Add(this.txtWeight);
       this.ProfileTab.Controls.Add(this.txtHeight);
@@ -303,10 +334,10 @@ namespace FitnessApp
       this.ProfileTab.Controls.Add(this.lblLastName);
       this.ProfileTab.Controls.Add(this.lblEditProfileHeader);
       this.ProfileTab.Controls.Add(this.lblProfile);
-      this.ProfileTab.Location = new System.Drawing.Point(4, 32);
+      this.ProfileTab.Location = new System.Drawing.Point(4, 31);
       this.ProfileTab.Name = "ProfileTab";
       this.ProfileTab.Padding = new System.Windows.Forms.Padding(3);
-      this.ProfileTab.Size = new System.Drawing.Size(892, 544);
+      this.ProfileTab.Size = new System.Drawing.Size(892, 545);
       this.ProfileTab.TabIndex = 1;
       this.ProfileTab.Text = "Profile";
       // 
@@ -446,18 +477,21 @@ namespace FitnessApp
       // HomeTab
       // 
       this.HomeTab.BackColor = System.Drawing.Color.White;
+      this.HomeTab.BackgroundImage = global::FitnessApp.Properties.Resources.home_resized;
+      this.HomeTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.HomeTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.HomeTab.Controls.Add(this.pnlCheatMeals);
       this.HomeTab.Controls.Add(this.pnlWorkouts);
-      this.HomeTab.Location = new System.Drawing.Point(4, 32);
+      this.HomeTab.Location = new System.Drawing.Point(4, 31);
       this.HomeTab.Name = "HomeTab";
       this.HomeTab.Padding = new System.Windows.Forms.Padding(3);
-      this.HomeTab.Size = new System.Drawing.Size(892, 544);
+      this.HomeTab.Size = new System.Drawing.Size(892, 545);
       this.HomeTab.TabIndex = 0;
       this.HomeTab.Text = "Home";
       // 
       // pnlCheatMeals
       // 
-      this.pnlCheatMeals.BackColor = System.Drawing.Color.Coral;
+      this.pnlCheatMeals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
       this.pnlCheatMeals.Controls.Add(this.lnkCheatMealDays);
       this.pnlCheatMeals.Controls.Add(this.lnkAddCheatMeal);
       this.pnlCheatMeals.Controls.Add(this.lblCheatMeals);
@@ -505,7 +539,7 @@ namespace FitnessApp
       // 
       // pnlWorkouts
       // 
-      this.pnlWorkouts.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.pnlWorkouts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(0)))));
       this.pnlWorkouts.Controls.Add(this.lnkWorkoutDaysCount);
       this.pnlWorkouts.Controls.Add(this.lnkAddWorkout);
       this.pnlWorkouts.Controls.Add(this.lblWorkouts);
@@ -553,14 +587,14 @@ namespace FitnessApp
       // 
       // Home
       // 
-      this.Home.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
       this.Home.Controls.Add(this.HomeTab);
       this.Home.Controls.Add(this.ProfileTab);
       this.Home.Controls.Add(this.PredictionsTab);
       this.Home.Controls.Add(this.ReportsTab);
       this.Home.Controls.Add(this.WeeklyView);
-      this.Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.Home.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Home.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+      this.Home.ItemSize = new System.Drawing.Size(60, 27);
       this.Home.Location = new System.Drawing.Point(54, 38);
       this.Home.Name = "Home";
       this.Home.SelectedIndex = 0;
@@ -571,14 +605,15 @@ namespace FitnessApp
       // WeeklyView
       // 
       this.WeeklyView.BackColor = System.Drawing.Color.White;
+      this.WeeklyView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.WeeklyView.Controls.Add(this.pnlWeeklyContent);
       this.WeeklyView.Controls.Add(this.pnlMonthWeek);
-      this.WeeklyView.Controls.Add(this.pbCalendarIcon);
       this.WeeklyView.Controls.Add(this.lblWeeklyViewHeader);
-      this.WeeklyView.Location = new System.Drawing.Point(4, 32);
+      this.WeeklyView.Controls.Add(this.pbCalendarIcon);
+      this.WeeklyView.Location = new System.Drawing.Point(4, 31);
       this.WeeklyView.Name = "WeeklyView";
       this.WeeklyView.Padding = new System.Windows.Forms.Padding(3);
-      this.WeeklyView.Size = new System.Drawing.Size(892, 544);
+      this.WeeklyView.Size = new System.Drawing.Size(892, 545);
       this.WeeklyView.TabIndex = 4;
       this.WeeklyView.Text = "Weekly View";
       // 
@@ -624,6 +659,50 @@ namespace FitnessApp
       this.pnlMonthWeek.Size = new System.Drawing.Size(441, 69);
       this.pnlMonthWeek.TabIndex = 2;
       // 
+      // lblWeek
+      // 
+      this.lblWeek.AutoSize = true;
+      this.lblWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblWeek.ForeColor = System.Drawing.SystemColors.Highlight;
+      this.lblWeek.Location = new System.Drawing.Point(140, 19);
+      this.lblWeek.Name = "lblWeek";
+      this.lblWeek.Size = new System.Drawing.Size(63, 24);
+      this.lblWeek.TabIndex = 0;
+      this.lblWeek.Text = "Week";
+      // 
+      // lblWeeklyViewHeader
+      // 
+      this.lblWeeklyViewHeader.AutoSize = true;
+      this.lblWeeklyViewHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblWeeklyViewHeader.Location = new System.Drawing.Point(242, 28);
+      this.lblWeeklyViewHeader.Name = "lblWeeklyViewHeader";
+      this.lblWeeklyViewHeader.Size = new System.Drawing.Size(349, 29);
+      this.lblWeeklyViewHeader.TabIndex = 0;
+      this.lblWeeklyViewHeader.Text = "Get Your Weekly Views Here";
+      // 
+      // ProfileErrorHandler
+      // 
+      this.ProfileErrorHandler.ContainerControl = this;
+      // 
+      // grdTest
+      // 
+      this.grdTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.grdTest.Location = new System.Drawing.Point(104, 59);
+      this.grdTest.Name = "grdTest";
+      this.grdTest.RowHeadersWidth = 51;
+      this.grdTest.RowTemplate.Height = 24;
+      this.grdTest.Size = new System.Drawing.Size(686, 300);
+      this.grdTest.TabIndex = 0;
+      // 
+      // pbPredictions
+      // 
+      this.pbPredictions.Image = global::FitnessApp.Properties.Resources.dashboard;
+      this.pbPredictions.Location = new System.Drawing.Point(595, 23);
+      this.pbPredictions.Name = "pbPredictions";
+      this.pbPredictions.Size = new System.Drawing.Size(38, 29);
+      this.pbPredictions.TabIndex = 4;
+      this.pbPredictions.TabStop = false;
+      // 
       // pbLeftArrow
       // 
       this.pbLeftArrow.Image = global::FitnessApp.Properties.Resources.left_arrow_24;
@@ -644,17 +723,6 @@ namespace FitnessApp
       this.pbRightArrow.TabStop = false;
       this.pbRightArrow.Click += new System.EventHandler(this.pbRightArrow_Click);
       // 
-      // lblWeek
-      // 
-      this.lblWeek.AutoSize = true;
-      this.lblWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblWeek.ForeColor = System.Drawing.SystemColors.Highlight;
-      this.lblWeek.Location = new System.Drawing.Point(140, 19);
-      this.lblWeek.Name = "lblWeek";
-      this.lblWeek.Size = new System.Drawing.Size(63, 24);
-      this.lblWeek.TabIndex = 0;
-      this.lblWeek.Text = "Week";
-      // 
       // pbCalendarIcon
       // 
       this.pbCalendarIcon.Image = global::FitnessApp.Properties.Resources.calendar_32;
@@ -664,49 +732,16 @@ namespace FitnessApp
       this.pbCalendarIcon.TabIndex = 1;
       this.pbCalendarIcon.TabStop = false;
       // 
-      // lblWeeklyViewHeader
-      // 
-      this.lblWeeklyViewHeader.AutoSize = true;
-      this.lblWeeklyViewHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblWeeklyViewHeader.Location = new System.Drawing.Point(242, 28);
-      this.lblWeeklyViewHeader.Name = "lblWeeklyViewHeader";
-      this.lblWeeklyViewHeader.Size = new System.Drawing.Size(349, 29);
-      this.lblWeeklyViewHeader.TabIndex = 0;
-      this.lblWeeklyViewHeader.Text = "Get Your Weekly Views Here";
-      // 
-      // ProfileErrorHandler
-      // 
-      this.ProfileErrorHandler.ContainerControl = this;
-      // 
-      // lblCurrentWeightValue
-      // 
-      this.lblCurrentWeightValue.AutoSize = true;
-      this.lblCurrentWeightValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblCurrentWeightValue.Location = new System.Drawing.Point(289, 10);
-      this.lblCurrentWeightValue.Name = "lblCurrentWeightValue";
-      this.lblCurrentWeightValue.Size = new System.Drawing.Size(74, 25);
-      this.lblCurrentWeightValue.TabIndex = 9;
-      this.lblCurrentWeightValue.Text = "Status";
-      // 
-      // lblCurrentWeight
-      // 
-      this.lblCurrentWeight.AutoSize = true;
-      this.lblCurrentWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblCurrentWeight.ForeColor = System.Drawing.SystemColors.HotTrack;
-      this.lblCurrentWeight.Location = new System.Drawing.Point(18, 10);
-      this.lblCurrentWeight.Name = "lblCurrentWeight";
-      this.lblCurrentWeight.Size = new System.Drawing.Size(158, 25);
-      this.lblCurrentWeight.TabIndex = 8;
-      this.lblCurrentWeight.Text = "Current Weight";
-      // 
       // Dashboard
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1021, 654);
+      this.ClientSize = new System.Drawing.Size(1048, 733);
       this.Controls.Add(this.Home);
+      this.ForeColor = System.Drawing.SystemColors.ControlText;
       this.Name = "Dashboard";
       this.Text = "Hello <user>";
+      this.ReportsTab.ResumeLayout(false);
       this.PredictionsTab.ResumeLayout(false);
       this.PredictionsTab.PerformLayout();
       this.pnlPredictionMain.ResumeLayout(false);
@@ -729,10 +764,12 @@ namespace FitnessApp
       this.pnlWeeklyContent.PerformLayout();
       this.pnlMonthWeek.ResumeLayout(false);
       this.pnlMonthWeek.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.ProfileErrorHandler)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.grdTest)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbPredictions)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbLeftArrow)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbRightArrow)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbCalendarIcon)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.ProfileErrorHandler)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -794,5 +831,7 @@ namespace FitnessApp
     private System.Windows.Forms.ErrorProvider ProfileErrorHandler;
     private System.Windows.Forms.Label lblCurrentWeightValue;
     private System.Windows.Forms.Label lblCurrentWeight;
+    private System.Windows.Forms.DataGridView grdTest;
+    private System.Windows.Forms.PictureBox pbPredictions;
   }
 }

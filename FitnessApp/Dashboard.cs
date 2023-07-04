@@ -83,6 +83,9 @@ namespace FitnessApp
         lblWeek.Tag = DateTime.Today;
         LoadWeeklyDetails(DateTime.Today);
       }
+      else if (e.TabPage == ReportsTab)
+      {
+      }
     }
 
     private void lnkAddWorkout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

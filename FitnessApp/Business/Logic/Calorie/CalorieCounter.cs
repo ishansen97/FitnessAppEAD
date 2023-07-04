@@ -86,7 +86,7 @@ namespace FitnessApp.Business.Logic.Calorie
       return calorieBurnFactor;
     }
 
-    private static double GetCalorieExpenditureForExercise(Workout workout)
+    public static double GetCalorieExpenditureForExercise(Workout workout)
     {
       var user = UserContext.CurrentProfile.User;
       double weight = 0.0f;
@@ -125,7 +125,7 @@ namespace FitnessApp.Business.Logic.Calorie
       return calorieExpenditure;
     }
 
-    private static double GetCalorieIntakeForCheatMeals(CheatMeal cheatMeal)
+    public static double GetCalorieIntakeForCheatMeals(CheatMeal cheatMeal)
     {
       var mealCaloriePerUnit = MealContext.GetMealCalorie(cheatMeal.MealType);
       var calorieIntake = mealCaloriePerUnit * cheatMeal.MealAmount;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FitnessApp.Business.Logic.Calorie;
 using FitnessApp.Context;
 using FitnessApp.Models;
 
@@ -38,6 +39,11 @@ namespace FitnessApp.Business.Handlers
       public void EditWorkout(int workoutId, Workout newWorkout)
       {
         WorkoutContext.EditWorkout(workoutId, newWorkout);
+      }
+
+      public double GetCalorieExpenditureForExercise(Workout workout)
+      {
+        return CalorieCounter.GetCalorieExpenditureForExercise(workout);
       }
     }
 }

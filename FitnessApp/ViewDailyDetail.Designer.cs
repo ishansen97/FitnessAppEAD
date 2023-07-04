@@ -61,7 +61,9 @@ namespace FitnessApp
       // WorkoutsTab
       // 
       this.WorkoutsTab.AutoScroll = true;
-      this.WorkoutsTab.BackColor = System.Drawing.Color.White;
+      this.WorkoutsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
+      this.WorkoutsTab.BackgroundImage = global::FitnessApp.Properties.Resources.workout_form_resized;
+      this.WorkoutsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.WorkoutsTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.WorkoutsTab.Location = new System.Drawing.Point(4, 28);
       this.WorkoutsTab.Name = "WorkoutsTab";
@@ -74,6 +76,8 @@ namespace FitnessApp
       // 
       this.CheatMealTab.AutoScroll = true;
       this.CheatMealTab.BackColor = System.Drawing.Color.White;
+      this.CheatMealTab.BackgroundImage = global::FitnessApp.Properties.Resources.edit_cheatmeals_resized;
+      this.CheatMealTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.CheatMealTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.CheatMealTab.Location = new System.Drawing.Point(4, 28);
       this.CheatMealTab.Name = "CheatMealTab";
@@ -86,9 +90,12 @@ namespace FitnessApp
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackgroundImage = global::FitnessApp.Properties.Resources.summary;
+      this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1061, 618);
       this.Controls.Add(this.DetailTabs);
       this.Controls.Add(this.lblDailyDetailsHeader);
+      this.DoubleBuffered = true;
       this.Name = "ViewDailyDetail";
       this.Text = "ViewDailyDetail";
       this.DetailTabs.ResumeLayout(false);

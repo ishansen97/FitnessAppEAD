@@ -22,6 +22,7 @@ namespace FitnessApp
     {
       InitializeComponent();
       _cheatMealService = new CheatMealService();
+      dtCheatMealPicker.Value = DateTime.Today;
       dtCheatMealPicker.MaxDate = DateTime.Today;
       cmbCheatMealTypes.Items.AddRange(EnumHelper.LoadItems<MealType>());
     }
@@ -84,6 +85,18 @@ namespace FitnessApp
         e.Cancel = true;
         txtBox.Focus();
         CheatMealErrorHandler.SetError(txtBox, "Please provide the meal amount.");
+      }
+      else if (!double.TryParse(txtBox.Text, out var dblValue))
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        CheatMealErrorHandler.SetError(txtBox, "The meal amount must be numeric.");
+      }
+      else if (dblValue < 0)
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        CheatMealErrorHandler.SetError(txtBox, "The meal amount must be positive number.");
       }
       else
       {

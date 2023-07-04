@@ -62,7 +62,7 @@ namespace FitnessApp
       // 
       // pnlEditCheatMeal
       // 
-      this.pnlEditCheatMeal.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.pnlEditCheatMeal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.pnlEditCheatMeal.Controls.Add(this.lblUnit);
       this.pnlEditCheatMeal.Controls.Add(this.txtAmount);
       this.pnlEditCheatMeal.Controls.Add(this.lblAmount);
@@ -199,6 +199,8 @@ namespace FitnessApp
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackgroundImage = global::FitnessApp.Properties.Resources.edit_cheatmeals_resized;
+      this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1037, 623);
       this.Controls.Add(this.pnlEditCheatMeal);
       this.Controls.Add(this.pb2);

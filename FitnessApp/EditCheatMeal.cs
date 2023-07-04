@@ -50,11 +50,17 @@ namespace FitnessApp
         txtBox.Focus();
         CheatMealErrorHandler.SetError(lblUnit, "Amount must not be empty.");
       }
-      else if (!int.TryParse(txtBox.Text, out var number))
+      else if (!double.TryParse(txtBox.Text, out var number))
       {
         e.Cancel = true;
         txtBox.Focus();
         CheatMealErrorHandler.SetError(lblUnit, "Amount must not be empty.");
+      }
+      else if (number < 0)
+      {
+        e.Cancel = true;
+        txtBox.Focus();
+        CheatMealErrorHandler.SetError(lblUnit, "Amount must be a positive number.");
       }
       else
       {

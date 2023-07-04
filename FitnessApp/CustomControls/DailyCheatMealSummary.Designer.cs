@@ -33,6 +33,8 @@ namespace FitnessApp.CustomControls
       this.lblMealTypeValue = new System.Windows.Forms.Label();
       this.lblAmountValue = new System.Windows.Forms.Label();
       this.lblAmount = new System.Windows.Forms.Label();
+      this.lblCalorieValue = new System.Windows.Forms.Label();
+      this.lblCalories = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // lblMealType
@@ -79,16 +81,41 @@ namespace FitnessApp.CustomControls
       this.lblAmount.TabIndex = 2;
       this.lblAmount.Text = "Amount";
       // 
+      // lblCalorieValue
+      // 
+      this.lblCalorieValue.AutoSize = true;
+      this.lblCalorieValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCalorieValue.ForeColor = System.Drawing.Color.Red;
+      this.lblCalorieValue.Location = new System.Drawing.Point(312, 144);
+      this.lblCalorieValue.Name = "lblCalorieValue";
+      this.lblCalorieValue.Size = new System.Drawing.Size(98, 29);
+      this.lblCalorieValue.TabIndex = 5;
+      this.lblCalorieValue.Text = "Calorie";
+      // 
+      // lblCalories
+      // 
+      this.lblCalories.AutoSize = true;
+      this.lblCalories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCalories.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+      this.lblCalories.Location = new System.Drawing.Point(37, 144);
+      this.lblCalories.Name = "lblCalories";
+      this.lblCalories.Size = new System.Drawing.Size(175, 29);
+      this.lblCalories.TabIndex = 4;
+      this.lblCalories.Text = "Calorie Intake";
+      // 
       // DailyCheatMealSummary
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
+      this.Controls.Add(this.lblCalorieValue);
+      this.Controls.Add(this.lblCalories);
       this.Controls.Add(this.lblAmountValue);
       this.Controls.Add(this.lblAmount);
       this.Controls.Add(this.lblMealTypeValue);
       this.Controls.Add(this.lblMealType);
       this.Name = "DailyCheatMealSummary";
-      this.Size = new System.Drawing.Size(581, 153);
+      this.Size = new System.Drawing.Size(581, 196);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -100,5 +127,7 @@ namespace FitnessApp.CustomControls
     private System.Windows.Forms.Label lblMealTypeValue;
     private System.Windows.Forms.Label lblAmountValue;
     private System.Windows.Forms.Label lblAmount;
+    private System.Windows.Forms.Label lblCalorieValue;
+    private System.Windows.Forms.Label lblCalories;
   }
 }

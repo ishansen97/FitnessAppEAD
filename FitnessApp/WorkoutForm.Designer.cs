@@ -30,6 +30,7 @@ namespace FitnessApp
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkoutForm));
       this.pnlWorkout = new System.Windows.Forms.Panel();
       this.pnlWorkoutControls = new System.Windows.Forms.Panel();
       this.btnAddWorkout = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@ namespace FitnessApp
       // 
       // pnlWorkout
       // 
-      this.pnlWorkout.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.pnlWorkout.Controls.Add(this.pnlWorkoutControls);
       this.pnlWorkout.Controls.Add(this.btnAddWorkout);
       this.pnlWorkout.Controls.Add(this.cmbWorkoutTypes);
@@ -62,7 +63,7 @@ namespace FitnessApp
       // pnlWorkoutControls
       // 
       this.pnlWorkoutControls.AutoSize = true;
-      this.pnlWorkoutControls.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkoutControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.pnlWorkoutControls.Location = new System.Drawing.Point(3, 182);
       this.pnlWorkoutControls.Name = "pnlWorkoutControls";
       this.pnlWorkoutControls.Size = new System.Drawing.Size(455, 127);
@@ -113,7 +114,7 @@ namespace FitnessApp
       // 
       // pnlWorkoutDate
       // 
-      this.pnlWorkoutDate.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkoutDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.pnlWorkoutDate.Controls.Add(this.dtWorkoutPicker);
       this.pnlWorkoutDate.Controls.Add(this.lblWorkoutDate);
       this.pnlWorkoutDate.Location = new System.Drawing.Point(3, 315);
@@ -151,6 +152,8 @@ namespace FitnessApp
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+      this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(975, 658);
       this.Controls.Add(this.pnlWorkout);
       this.Name = "WorkoutForm";

@@ -18,14 +18,6 @@ namespace FitnessApp
       InitializeComponent();
     }
 
-    private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      Register registerForm = new Register();
-      registerForm.Activate();
-      registerForm.ShowDialog();
-      Hide();
-    }
-
     private void btnLogin_Click(object sender, EventArgs e)
     {
       if (ValidateChildren(ValidationConstraints.Enabled))

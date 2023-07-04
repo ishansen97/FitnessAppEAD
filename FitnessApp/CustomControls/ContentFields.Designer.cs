@@ -36,7 +36,7 @@ namespace FitnessApp.CustomControls
       // lblField
       // 
       this.lblField.AutoSize = true;
-      this.lblField.BackColor = System.Drawing.SystemColors.Control;
+      this.lblField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.lblField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblField.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
       this.lblField.Location = new System.Drawing.Point(3, 0);
@@ -48,7 +48,7 @@ namespace FitnessApp.CustomControls
       // lblValue
       // 
       this.lblValue.AutoSize = true;
-      this.lblValue.BackColor = System.Drawing.SystemColors.Control;
+      this.lblValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.lblValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblValue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
       this.lblValue.Location = new System.Drawing.Point(323, 0);
@@ -62,7 +62,7 @@ namespace FitnessApp.CustomControls
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoSize = true;
-      this.BackColor = System.Drawing.SystemColors.Control;
+      this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.Controls.Add(this.lblValue);
       this.Controls.Add(this.lblField);
       this.Name = "ContentFields";

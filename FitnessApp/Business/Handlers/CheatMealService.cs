@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FitnessApp.Business.Logic.Calorie;
 using FitnessApp.Context;
 using FitnessApp.Models;
 
@@ -38,6 +39,11 @@ namespace FitnessApp.Business.Handlers
     public void EditCheatMeal(int cheatMealId, CheatMeal newCheatMeal)
     {
       CheatMealContext.EditCheatMeal(cheatMealId, newCheatMeal);
+    }
+
+    public double GetCalorieIntakeForCheatMeal(CheatMeal cheatMeal)
+    {
+      return CalorieCounter.GetCalorieIntakeForCheatMeals(cheatMeal);
     }
   }
 }

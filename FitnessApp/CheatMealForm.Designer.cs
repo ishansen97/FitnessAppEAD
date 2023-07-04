@@ -46,7 +46,7 @@ namespace FitnessApp
       // 
       // pnlWorkout
       // 
-      this.pnlWorkout.BackColor = System.Drawing.SystemColors.Control;
+      this.pnlWorkout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(214)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
       this.pnlWorkout.Controls.Add(this.dtCheatMealPicker);
       this.pnlWorkout.Controls.Add(this.lblCheatMealDate);
       this.pnlWorkout.Controls.Add(this.txtAmount);
@@ -151,6 +151,8 @@ namespace FitnessApp
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.BackgroundImage = global::FitnessApp.Properties.Resources.cheat_meal_form;
+      this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1027, 592);
       this.Controls.Add(this.pnlWorkout);
       this.Name = "CheatMealForm";
