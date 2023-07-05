@@ -25,13 +25,14 @@ namespace FitnessApp
     private CheatMealService _cheatMealService;
     private PredictionService _predictionService;
     private WeeklyViewService _weeklyViewService;
+    private UserService _userService;
 
     public Dashboard()
     {
       InitializeComponent();
-      //string newHeader = 
       ChangeHeader();
       InitializeServices();
+      ChangeProfileDisplayName();
       InitializeControlDate();
     }
 
@@ -48,6 +49,7 @@ namespace FitnessApp
       _cheatMealService = new CheatMealService();
       _predictionService = new PredictionService();
       _weeklyViewService = new WeeklyViewService();
+      _userService = new UserService();
     }
 
     private void ChangeHeader()
@@ -56,14 +58,18 @@ namespace FitnessApp
       Text = newText;
     }
 
+    private void ChangeProfileDisplayName()
+    {
+      lblUserFirstName.Text = _userService.GetUserFirstName();
+    }
+
     private void OnTabChanged(object sender, TabControlEventArgs e)
     {
-      var index = e.TabPageIndex;
       if (e.TabPage == ProfileTab)
       {
         if (!_isProfileLoaded)
         {
-          _userProfile = UserContext.CurrentProfile;
+          _userProfile = _userService.GetUserProfile();
           var user = _userProfile.User;
           txtFirstName.Text = user.FirstName;
           txtLastName.Text = user.LastName;
@@ -82,9 +88,6 @@ namespace FitnessApp
         lblWeek.Text = DateHelper.CreateWeekText(DateTime.Today);
         lblWeek.Tag = DateTime.Today;
         LoadWeeklyDetails(DateTime.Today);
-      }
-      else if (e.TabPage == ReportsTab)
-      {
       }
     }
 
@@ -132,7 +135,8 @@ namespace FitnessApp
                                             System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
         // display current weight
-        lblCurrentWeightValue.Text = prediction.CurrentWeight.ToString(CultureInfo.InvariantCulture);
+        var currentWeight = prediction.CurrentWeight;
+        lblCurrentWeightValue.Text = $"{currentWeight} kg";
 
         // display predicted weight
         lblPredictedWeightValue.Text = $"{prediction.PredictedWeight.ToString(CultureInfo.InvariantCulture)} kg";
@@ -245,7 +249,7 @@ namespace FitnessApp
         _userProfile.User.Height = int.Parse(txtHeight.Text); 
         _userProfile.User.Weight = double.Parse(txtWeight.Text);
         
-        // TODO: add the service part for user in CW2.
+        // TODO: SHAN: add the service part for user in CW2.
         MessageBox.Show("User updated successfully.", "Success!");
       }
     }
@@ -320,6 +324,15 @@ namespace FitnessApp
         e.Cancel = false;
         ProfileErrorHandler.SetError(txtBox, string.Empty);
       }
+    }
+
+    private void btnLogOut_Click(object sender, EventArgs e)
+    {
+      _userService.Logout();
+      LoginForm loginForm = new LoginForm();
+      Hide();
+      loginForm.Activate();
+      loginForm.ShowDialog();
     }
   }
 }

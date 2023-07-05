@@ -75,7 +75,7 @@ namespace FitnessApp.Business.Logic.Predictions
       }
       else
       {
-        message = $"{user.FirstName} you have gained weight. Please try to be more active";
+        message = $"{user.FirstName} you have gained weight. Please try to be more active.";
       }
 
       return message;

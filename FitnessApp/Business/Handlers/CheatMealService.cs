@@ -45,5 +45,11 @@ namespace FitnessApp.Business.Handlers
     {
       return CalorieCounter.GetCalorieIntakeForCheatMeals(cheatMeal);
     }
+
+    public double GetCalorieExpenditureForCheatMeals(List<CheatMeal> cheatMeals)
+    {
+      double totalCalories = cheatMeals.Sum(CalorieCounter.GetCalorieIntakeForCheatMeals);
+      return totalCalories;
+    }
   }
 }

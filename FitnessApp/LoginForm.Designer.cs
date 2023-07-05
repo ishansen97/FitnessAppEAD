@@ -39,6 +39,8 @@ namespace FitnessApp
       this.btnLogin = new System.Windows.Forms.Button();
       this.LoginErrorHandler = new System.Windows.Forms.ErrorProvider(this.components);
       this.pnlLoginForm = new System.Windows.Forms.Panel();
+      this.lnkRegister = new System.Windows.Forms.LinkLabel();
+      this.lblNewUser = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.LoginErrorHandler)).BeginInit();
       this.pnlLoginForm.SuspendLayout();
       this.SuspendLayout();
@@ -112,6 +114,8 @@ namespace FitnessApp
       // pnlLoginForm
       // 
       this.pnlLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(204)))), ((int)(((byte)(212)))), ((int)(((byte)(230)))));
+      this.pnlLoginForm.Controls.Add(this.lnkRegister);
+      this.pnlLoginForm.Controls.Add(this.lblNewUser);
       this.pnlLoginForm.Controls.Add(this.btnLogin);
       this.pnlLoginForm.Controls.Add(this.txtPassword);
       this.pnlLoginForm.Controls.Add(this.txtUserName);
@@ -122,6 +126,29 @@ namespace FitnessApp
       this.pnlLoginForm.Name = "pnlLoginForm";
       this.pnlLoginForm.Size = new System.Drawing.Size(860, 482);
       this.pnlLoginForm.TabIndex = 6;
+      // 
+      // lnkRegister
+      // 
+      this.lnkRegister.AutoSize = true;
+      this.lnkRegister.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lnkRegister.Location = new System.Drawing.Point(403, 428);
+      this.lnkRegister.Name = "lnkRegister";
+      this.lnkRegister.Size = new System.Drawing.Size(89, 24);
+      this.lnkRegister.TabIndex = 7;
+      this.lnkRegister.TabStop = true;
+      this.lnkRegister.Text = "Register";
+      this.lnkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRegister_LinkClicked);
+      // 
+      // lblNewUser
+      // 
+      this.lblNewUser.AutoSize = true;
+      this.lblNewUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.lblNewUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblNewUser.Location = new System.Drawing.Point(247, 428);
+      this.lblNewUser.Name = "lblNewUser";
+      this.lblNewUser.Size = new System.Drawing.Size(112, 24);
+      this.lblNewUser.TabIndex = 6;
+      this.lblNewUser.Text = "New User?";
       // 
       // LoginForm
       // 
@@ -152,5 +179,7 @@ namespace FitnessApp
     private System.Windows.Forms.Button btnLogin;
     private System.Windows.Forms.ErrorProvider LoginErrorHandler;
     private System.Windows.Forms.Panel pnlLoginForm;
+    private System.Windows.Forms.LinkLabel lnkRegister;
+    private System.Windows.Forms.Label lblNewUser;
   }
 }

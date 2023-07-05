@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FitnessApp.Business.Handlers;
 using FitnessApp.CustomControls;
 using FitnessApp.Helpers;
 using FitnessApp.Models;
@@ -16,6 +18,8 @@ namespace FitnessApp
   public partial class ViewDailyDetail : Form
   {
     private DailyDetail _dailyDetail;
+    private WorkoutService _workoutService;
+    private CheatMealService _cheatMealService;
 
     public ViewDailyDetail()
     {
@@ -26,6 +30,8 @@ namespace FitnessApp
     {
       InitializeComponent();
       _dailyDetail = dailyDetail;
+      _workoutService = new WorkoutService();
+      _cheatMealService = new CheatMealService();
       LoadWorkouts();
     }
 
@@ -107,6 +113,10 @@ namespace FitnessApp
       {
         LoadCheatMeals();
       }
+      else if (e.TabPage == SummaryTab)
+      {
+        LoadSummaryTab();
+      }
     }
 
     private void LoadMessageForNoWorkouts()
@@ -139,5 +149,42 @@ namespace FitnessApp
       messageLabel.Width = 140;
       CheatMealTab.Controls.Add(messageLabel);
     }
+
+    private void LoadSummaryTab()
+    {
+      var workoutCalorieCount = _workoutService.GetCalorieExpenditureForWorkouts(_dailyDetail.Workouts);
+      var cheatMealCalorieCount = _cheatMealService.GetCalorieExpenditureForCheatMeals(_dailyDetail.CheatMeals);
+
+      lblWorkoutCalorieValue.Text = $"{workoutCalorieCount} cal".ToString(CultureInfo.InvariantCulture);
+      lblWorkoutCalorieValue.ForeColor = Color.Green;
+
+      lblCheatMealCalorieValue.Text = $"{cheatMealCalorieCount} cal".ToString(CultureInfo.InvariantCulture);
+      lblCheatMealCalorieValue.ForeColor = Color.Red;
+
+      var (text, color) = (workoutCalorieCount > cheatMealCalorieCount) 
+                                      ? GetCalorieDeficitTextAndColor() 
+                                      : GetCalorieSurplusTextAndColor();
+
+      lblCalorieStatusValue.Text = text;
+      lblCalorieStatusValue.ForeColor = color;
+
+      lblCalorieStatusMeasure.Text =
+        $"{(workoutCalorieCount - cheatMealCalorieCount).ToString(CultureInfo.InvariantCulture)} cal";
+
+      lblCalorieStatusMeasure.ForeColor = color;
+
+    }
+
+    private (string text, Color color) GetCalorieDeficitTextAndColor()
+    {
+      return ("Deficit", Color.Green);
+    }
+
+    private (string text, Color color) GetCalorieSurplusTextAndColor()
+    {
+      return ("Surplus", Color.Red);
+    }
+
+
   }
 }

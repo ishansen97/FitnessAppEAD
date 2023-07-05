@@ -12,7 +12,6 @@ namespace FitnessApp.Context
     {
       private static Hashtable _users;
       private static Hashtable _userProfiles;
-      private static Hashtable _workouts;
       private static UserProfile _currentProfile;
       private static bool _isUserAuthenticated = false;
 
@@ -34,10 +33,6 @@ namespace FitnessApp.Context
           ["JohnWick"] = new UserProfile
             { ProfileId = 2, User = (User)_users[2], UserName = "JohnWick", Password = "user@123" },
         };
-
-        // workouts
-        _workouts = new Hashtable();
-
       }
 
       public static UserProfile CurrentProfile
@@ -75,7 +70,7 @@ namespace FitnessApp.Context
 
       public static bool IsUserExistForUserName(string userName)
       {
-        return _userProfiles.Contains(userName);
+        return _userProfiles.ContainsKey(userName);
       }
 
       public static bool IsUserCredentialsValid(string userName, string password)
@@ -101,6 +96,18 @@ namespace FitnessApp.Context
         return false;
       }
 
+      public static void Logout()
+      {
+        _currentProfile = null;
+        _isUserAuthenticated = false;
+      }
+
+      public static string GetUserFirstName()
+      {
+        return _currentProfile.User.FirstName;
+      }
+
+      // TODO: ISHAN: implement in CW2?
       public static void UpdateUser(User user)
       {
         if (_userProfiles.ContainsKey(CurrentProfile.UserName))

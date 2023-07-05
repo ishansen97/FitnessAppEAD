@@ -45,5 +45,11 @@ namespace FitnessApp.Business.Handlers
       {
         return CalorieCounter.GetCalorieExpenditureForExercise(workout);
       }
+
+      public double GetCalorieExpenditureForWorkouts(List<Workout> workouts)
+      {
+        double totalCalories = workouts.Sum(CalorieCounter.GetCalorieExpenditureForExercise);
+        return totalCalories;
+      }
     }
 }

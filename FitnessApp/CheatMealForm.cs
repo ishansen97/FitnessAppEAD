@@ -64,7 +64,13 @@ namespace FitnessApp
     private void cmbCheatMealTypes_Validating(object sender, CancelEventArgs e)
     {
       ComboBox cmb = sender as ComboBox;
-      if (string.IsNullOrEmpty(cmb.SelectedItem.ToString()))
+      if (cmb.SelectedItem == null)
+      {
+        e.Cancel = true;
+        cmb.Focus();
+        CheatMealErrorHandler.SetError(cmb, "Please select a meal type.");
+      }
+      else if (string.IsNullOrEmpty(cmb.SelectedItem.ToString()))
       {
         e.Cancel = true;
         cmb.Focus();

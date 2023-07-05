@@ -67,5 +67,13 @@ namespace FitnessApp
         LoginErrorHandler.SetError(txtPassword, string.Empty);
       }
     }
+
+    private void lnkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      Register registerForm = new Register();
+      Hide();
+      registerForm.Activate();
+      registerForm.ShowDialog();
+    }
   }
 }
