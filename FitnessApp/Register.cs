@@ -80,7 +80,7 @@ namespace FitnessApp
     private bool ValidatePasswords()
     {
       var password = txtPassword.Text.Trim();
-      var confirmPassword = txtPassword.Text.Trim();
+      var confirmPassword = txtConfirmPassword.Text.Trim();
 
       if (password.Length < ApplicationConstants.PasswordCharMinLength ||
           confirmPassword.Length < ApplicationConstants.PasswordCharMinLength)

@@ -30,12 +30,22 @@ namespace FitnessApp.Business.Logic.Calorie
     {
       DateTime minDate = new DateTime();
       var workoutsOrderedByDate = workouts.Select(wk => wk.Created).OrderBy(dt => dt).ToList();
-      var minWorkoutDate = workoutsOrderedByDate.First();
-      var maxWorkoutDate = workoutsOrderedByDate.Last();
-
       var cheatMealsOrderedByDate = cheatMeals.Select(cm => cm.Created).OrderBy(dt => dt).ToList();
-      var minCheatMealDate = cheatMealsOrderedByDate.First();
-      var maxCheatMealDate = cheatMealsOrderedByDate.Last();
+      var minWorkoutDate = DateTime.Today;
+      var maxWorkoutDate = DateTime.Today;
+      var minCheatMealDate = DateTime.Today;
+      var maxCheatMealDate = DateTime.Today;
+      if (workoutsOrderedByDate.Any())
+      {
+        minWorkoutDate = workoutsOrderedByDate.First();
+        maxWorkoutDate = workoutsOrderedByDate.Last();
+      }
+
+      if (cheatMealsOrderedByDate.Any())
+      {
+        minCheatMealDate = cheatMealsOrderedByDate.First();
+        maxCheatMealDate = cheatMealsOrderedByDate.Last();
+      }
 
       var dateTimes = new List<DateTime> { minWorkoutDate, maxWorkoutDate, minCheatMealDate, maxCheatMealDate };
       minDate = dateTimes.OrderBy(dt => dt).First();
